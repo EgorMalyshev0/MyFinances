@@ -6,15 +6,25 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ContentView: View {
     
     @State private var selection: Int = 0
+    @ObservedResults(AccountGroup.self) var accountGroups
     
     var body: some View {
         TabView(selection: $selection) {
             NavigationView {
-                AccountsScreen()
+                if let group = accountGroups.first {
+                    let viewModel = AccountsViewModel(accountGroup: group)
+                    AccountsScreen(accountsViewModel: viewModel)
+                } else {
+                    ProgressView()
+                        .onAppear {
+                        $accountGroups.append(AccountGroup())
+                    }
+                }
             }
             .tabItem {
                 Image(systemName: "creditcard")

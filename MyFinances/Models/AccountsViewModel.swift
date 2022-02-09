@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 class AccountsViewModel: ObservableObject {
-    @Published var accounts: [Account] = .init()
+    @ObservedRealmObject var accountGroup: AccountGroup
     
     var balance: Double {
-        let balances = accounts.map({$0.balance})
+        let balances = accountGroup.accounts.map({$0.balance})
         return balances.reduce(0) {$0 + $1}
+    }
+    
+    init(accountGroup: AccountGroup) {
+        self.accountGroup = accountGroup
     }
 }

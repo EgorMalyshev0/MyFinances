@@ -6,33 +6,23 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct AccountsScreen: View {
     
-    @ObservedObject var accountsViewModel: AccountsViewModel = .init()
+    @ObservedObject var accountsViewModel: AccountsViewModel
     @State private var addAccountIsPresented: Bool = false
-    private let numberFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.locale = Locale(identifier: "ru_RU")
-        formatter.maximumFractionDigits = 2
-        formatter.decimalSeparator = ","
-        formatter.groupingSeparator = " "
-        return formatter
-    }()
+    
     private var balanceString: String {
-        accountsViewModel.accounts.isEmpty ? "Нет счетов" : "Баланс: \(numberFormatter.string(from: NSNumber(value: accountsViewModel.balance)) ?? "")"
+        accountsViewModel.accountGroup.accounts.isEmpty ? "Нет счетов" : "Баланс: \(accountsViewModel.balance.currencyString())"
     }
     
     var body: some View {
-        List(accountsViewModel.accounts) { account in
-            HStack {
-                Text(account.name)
-                Spacer()
-                Text(numberFormatter.string(from: NSNumber(value: account.balance)) ?? "")
-                    .multilineTextAlignment(.trailing)
-                    .frame(alignment: .trailing)
+        List {
+            ForEach(accountsViewModel.accountGroup.accounts) {
+                AccountCell(account: $0)
             }
+            .onDelete(perform: $accountsViewModel.accountGroup.accounts.remove)
         }
         .toolbar {
             Button {
@@ -49,11 +39,5 @@ struct AccountsScreen: View {
         }
         .navigationTitle(balanceString)
         .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
-struct AccountsScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        AccountsScreen()
     }
 }

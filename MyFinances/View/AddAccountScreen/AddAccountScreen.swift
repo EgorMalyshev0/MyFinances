@@ -27,8 +27,11 @@ struct AddAccountScreen: View {
         }
         .toolbar {
             Button("Сохранить") {
-                let account = Account(name: accountName, type: accountType, balance: Double(balance) ?? 0)
-                accountsViewModel.accounts.append(account)
+                let account = Account()
+                account.name = accountName
+                account.balance = Double(balance) ?? 0
+                account.type = accountType.rawValue
+                $accountsViewModel.accountGroup.accounts.append(account)
                 presentationMode.wrappedValue.dismiss()
             }
             .disabled(accountName.isEmpty)

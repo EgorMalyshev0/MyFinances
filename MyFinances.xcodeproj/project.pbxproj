@@ -21,6 +21,10 @@
 		DE56446927B1A8C0000D6714 /* SelectAccountTypeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE56446827B1A8C0000D6714 /* SelectAccountTypeScreen.swift */; };
 		DE56447227B2D1A4000D6714 /* SelectAccountTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE56447127B2D1A3000D6714 /* SelectAccountTypeCell.swift */; };
 		DE56447627B2D6C5000D6714 /* AccountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE56447527B2D6C5000D6714 /* AccountsViewModel.swift */; };
+		DE56447827B2F965000D6714 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE56447727B2F964000D6714 /* AccountCell.swift */; };
+		DE56447A27B2F9AC000D6714 /* Double+NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE56447927B2F9AC000D6714 /* Double+NumberFormatter.swift */; };
+		DE56447F27B30171000D6714 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = DE56447E27B30171000D6714 /* Realm */; };
+		DE56448127B30171000D6714 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DE56448027B30171000D6714 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +43,8 @@
 		DE56446827B1A8C0000D6714 /* SelectAccountTypeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountTypeScreen.swift; sourceTree = "<group>"; };
 		DE56447127B2D1A3000D6714 /* SelectAccountTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountTypeCell.swift; sourceTree = "<group>"; };
 		DE56447527B2D6C5000D6714 /* AccountsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewModel.swift; sourceTree = "<group>"; };
+		DE56447727B2F964000D6714 /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
+		DE56447927B2F9AC000D6714 /* Double+NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+NumberFormatter.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE56448127B30171000D6714 /* RealmSwift in Frameworks */,
+				DE56447F27B30171000D6714 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +82,7 @@
 				DE56444427AEC4C1000D6714 /* MyFinancesApp.swift */,
 				DE56447327B2D63F000D6714 /* View */,
 				DE56446127B1A0CE000D6714 /* Models */,
+				DE56447B27B2F9C0000D6714 /* Extensions */,
 				DE56444827AEC4C3000D6714 /* Assets.xcassets */,
 				DE56444A27AEC4C3000D6714 /* Preview Content */,
 			);
@@ -103,7 +112,7 @@
 			children = (
 				DE56444627AEC4C1000D6714 /* ContentView.swift */,
 				DE56445227B007D9000D6714 /* TransactionsScreen.swift */,
-				DE56445B27B19CFE000D6714 /* AddTransactionScreen.swift */,
+				DE56447C27B2FE3F000D6714 /* AddTransactionScreen */,
 				DE56445427B0087F000D6714 /* AccountsScreen.swift */,
 				DE56447427B2D662000D6714 /* AddAccountScreen */,
 			);
@@ -117,8 +126,25 @@
 				DE56446827B1A8C0000D6714 /* SelectAccountTypeScreen.swift */,
 				DE56446627B1A744000D6714 /* AccountBalanceRow.swift */,
 				DE56447127B2D1A3000D6714 /* SelectAccountTypeCell.swift */,
+				DE56447727B2F964000D6714 /* AccountCell.swift */,
 			);
 			path = AddAccountScreen;
+			sourceTree = "<group>";
+		};
+		DE56447B27B2F9C0000D6714 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DE56447927B2F9AC000D6714 /* Double+NumberFormatter.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DE56447C27B2FE3F000D6714 /* AddTransactionScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DE56445B27B19CFE000D6714 /* AddTransactionScreen.swift */,
+			);
+			name = AddTransactionScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +163,10 @@
 			dependencies = (
 			);
 			name = MyFinances;
+			packageProductDependencies = (
+				DE56447E27B30171000D6714 /* Realm */,
+				DE56448027B30171000D6714 /* RealmSwift */,
+			);
 			productName = MyFinances;
 			productReference = DE56444127AEC4C1000D6714 /* MyFinances.app */;
 			productType = "com.apple.product-type.application";
@@ -165,6 +195,9 @@
 				Base,
 			);
 			mainGroup = DE56443827AEC4C1000D6714;
+			packageReferences = (
+				DE56447D27B30171000D6714 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = DE56444227AEC4C1000D6714 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -201,7 +234,9 @@
 				DE56444527AEC4C1000D6714 /* MyFinancesApp.swift in Sources */,
 				DE56445527B0087F000D6714 /* AccountsScreen.swift in Sources */,
 				DE56446927B1A8C0000D6714 /* SelectAccountTypeScreen.swift in Sources */,
+				DE56447827B2F965000D6714 /* AccountCell.swift in Sources */,
 				DE56447627B2D6C5000D6714 /* AccountsViewModel.swift in Sources */,
+				DE56447A27B2F9AC000D6714 /* Double+NumberFormatter.swift in Sources */,
 				DE56446027B1A0C7000D6714 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,7 +295,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -315,7 +350,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -342,7 +377,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -373,7 +408,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -409,6 +444,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DE56447D27B30171000D6714 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DE56447E27B30171000D6714 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE56447D27B30171000D6714 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		DE56448027B30171000D6714 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE56447D27B30171000D6714 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DE56443927AEC4C1000D6714 /* Project object */;
 }

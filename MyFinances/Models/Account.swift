@@ -6,10 +6,16 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Account: Identifiable {
-    let name: String
-    let type: AccountType
-    let balance: Double
-    let id: String = UUID().uuidString
+final class Account: Object, ObjectKeyIdentifiable {
+    @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted var name: String
+    @Persisted var type: String
+    @Persisted var balance: Double
+}
+
+final class AccountGroup: Object, ObjectKeyIdentifiable {
+    @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted var accounts = RealmSwift.List<Account>()
 }

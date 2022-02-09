@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 enum AccountType: String, CaseIterable {
     case cash
