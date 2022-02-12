@@ -18,7 +18,7 @@ struct AddAccountScreen: View {
     var body: some View {
         List {
             TextField("Название", text: $accountName)
-            AccountBalanceRow(balance: $balance)
+            BalanceRow(balance: $balance, title: "Текущий баланс")
             NavigationLink {
                 SelectAccountTypeScreen(selectedType: $accountType)
             } label: {

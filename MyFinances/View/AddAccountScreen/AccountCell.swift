@@ -15,7 +15,7 @@ struct AccountCell: View {
         HStack {
             Text(account.name)
             Spacer()
-            Text(account.balance.currencyString())
+            Text(account.bal.currencyString())
                 .multilineTextAlignment(.trailing)
         }
     }

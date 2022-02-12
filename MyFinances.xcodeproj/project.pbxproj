@@ -17,7 +17,7 @@
 		DE56445E27B19F63000D6714 /* AddAccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE56445D27B19F63000D6714 /* AddAccountScreen.swift */; };
 		DE56446027B1A0C7000D6714 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE56445F27B1A0C7000D6714 /* Account.swift */; };
 		DE56446327B1A212000D6714 /* AccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE56446227B1A212000D6714 /* AccountType.swift */; };
-		DE56446727B1A744000D6714 /* AccountBalanceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE56446627B1A744000D6714 /* AccountBalanceRow.swift */; };
+		DE56446727B1A744000D6714 /* BalanceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE56446627B1A744000D6714 /* BalanceRow.swift */; };
 		DE56446927B1A8C0000D6714 /* SelectAccountTypeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE56446827B1A8C0000D6714 /* SelectAccountTypeScreen.swift */; };
 		DE56447227B2D1A4000D6714 /* SelectAccountTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE56447127B2D1A3000D6714 /* SelectAccountTypeCell.swift */; };
 		DE56447627B2D6C5000D6714 /* AccountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE56447527B2D6C5000D6714 /* AccountsViewModel.swift */; };
@@ -25,6 +25,15 @@
 		DE56447A27B2F9AC000D6714 /* Double+NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE56447927B2F9AC000D6714 /* Double+NumberFormatter.swift */; };
 		DE56447F27B30171000D6714 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = DE56447E27B30171000D6714 /* Realm */; };
 		DE56448127B30171000D6714 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DE56448027B30171000D6714 /* RealmSwift */; };
+		DEBAC39227B444A40075959B /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC39127B444A40075959B /* Transaction.swift */; };
+		DEBAC39427B445FC0075959B /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC39327B445FC0075959B /* TransactionsViewModel.swift */; };
+		DEBAC39627B447200075959B /* TransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC39527B447200075959B /* TransactionRow.swift */; };
+		DEBAC39827B44CB20075959B /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC39727B44CB20075959B /* TransactionType.swift */; };
+		DEBAC39F27B56E7B0075959B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC39E27B56E7B0075959B /* Category.swift */; };
+		DEBAC3A127B593F70075959B /* SelectCategoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC3A027B593F70075959B /* SelectCategoryScreen.swift */; };
+		DEBAC3A327B597E30075959B /* SelectCategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC3A227B597E30075959B /* SelectCategoryRow.swift */; };
+		DEBAC3A927B7C5BC0075959B /* SelectAccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC3A827B7C5BC0075959B /* SelectAccountScreen.swift */; };
+		DEBAC3AB27B7C8BB0075959B /* SelectAccountRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC3AA27B7C8BB0075959B /* SelectAccountRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,12 +48,21 @@
 		DE56445D27B19F63000D6714 /* AddAccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountScreen.swift; sourceTree = "<group>"; };
 		DE56445F27B1A0C7000D6714 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		DE56446227B1A212000D6714 /* AccountType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountType.swift; sourceTree = "<group>"; };
-		DE56446627B1A744000D6714 /* AccountBalanceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBalanceRow.swift; sourceTree = "<group>"; };
+		DE56446627B1A744000D6714 /* BalanceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceRow.swift; sourceTree = "<group>"; };
 		DE56446827B1A8C0000D6714 /* SelectAccountTypeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountTypeScreen.swift; sourceTree = "<group>"; };
 		DE56447127B2D1A3000D6714 /* SelectAccountTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountTypeCell.swift; sourceTree = "<group>"; };
 		DE56447527B2D6C5000D6714 /* AccountsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewModel.swift; sourceTree = "<group>"; };
 		DE56447727B2F964000D6714 /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		DE56447927B2F9AC000D6714 /* Double+NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+NumberFormatter.swift"; sourceTree = "<group>"; };
+		DEBAC39127B444A40075959B /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		DEBAC39327B445FC0075959B /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
+		DEBAC39527B447200075959B /* TransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRow.swift; sourceTree = "<group>"; };
+		DEBAC39727B44CB20075959B /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
+		DEBAC39E27B56E7B0075959B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		DEBAC3A027B593F70075959B /* SelectCategoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryScreen.swift; sourceTree = "<group>"; };
+		DEBAC3A227B597E30075959B /* SelectCategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryRow.swift; sourceTree = "<group>"; };
+		DEBAC3A827B7C5BC0075959B /* SelectAccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountScreen.swift; sourceTree = "<group>"; };
+		DEBAC3AA27B7C8BB0075959B /* SelectAccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +120,10 @@
 			children = (
 				DE56445F27B1A0C7000D6714 /* Account.swift */,
 				DE56447527B2D6C5000D6714 /* AccountsViewModel.swift */,
+				DEBAC39327B445FC0075959B /* TransactionsViewModel.swift */,
+				DEBAC39E27B56E7B0075959B /* Category.swift */,
+				DEBAC39127B444A40075959B /* Transaction.swift */,
+				DEBAC39727B44CB20075959B /* TransactionType.swift */,
 				DE56446227B1A212000D6714 /* AccountType.swift */,
 			);
 			path = Models;
@@ -124,7 +146,7 @@
 			children = (
 				DE56445D27B19F63000D6714 /* AddAccountScreen.swift */,
 				DE56446827B1A8C0000D6714 /* SelectAccountTypeScreen.swift */,
-				DE56446627B1A744000D6714 /* AccountBalanceRow.swift */,
+				DE56446627B1A744000D6714 /* BalanceRow.swift */,
 				DE56447127B2D1A3000D6714 /* SelectAccountTypeCell.swift */,
 				DE56447727B2F964000D6714 /* AccountCell.swift */,
 			);
@@ -143,6 +165,11 @@
 			isa = PBXGroup;
 			children = (
 				DE56445B27B19CFE000D6714 /* AddTransactionScreen.swift */,
+				DEBAC39527B447200075959B /* TransactionRow.swift */,
+				DEBAC3A027B593F70075959B /* SelectCategoryScreen.swift */,
+				DEBAC3A827B7C5BC0075959B /* SelectAccountScreen.swift */,
+				DEBAC3AA27B7C8BB0075959B /* SelectAccountRow.swift */,
+				DEBAC3A227B597E30075959B /* SelectCategoryRow.swift */,
 			);
 			name = AddTransactionScreen;
 			sourceTree = "<group>";
@@ -226,18 +253,27 @@
 			files = (
 				DE56445C27B19CFE000D6714 /* AddTransactionScreen.swift in Sources */,
 				DE56447227B2D1A4000D6714 /* SelectAccountTypeCell.swift in Sources */,
+				DEBAC39F27B56E7B0075959B /* Category.swift in Sources */,
+				DEBAC39627B447200075959B /* TransactionRow.swift in Sources */,
 				DE56445E27B19F63000D6714 /* AddAccountScreen.swift in Sources */,
-				DE56446727B1A744000D6714 /* AccountBalanceRow.swift in Sources */,
+				DE56446727B1A744000D6714 /* BalanceRow.swift in Sources */,
 				DE56444727AEC4C1000D6714 /* ContentView.swift in Sources */,
 				DE56446327B1A212000D6714 /* AccountType.swift in Sources */,
 				DE56445327B007D9000D6714 /* TransactionsScreen.swift in Sources */,
 				DE56444527AEC4C1000D6714 /* MyFinancesApp.swift in Sources */,
 				DE56445527B0087F000D6714 /* AccountsScreen.swift in Sources */,
+				DEBAC3A927B7C5BC0075959B /* SelectAccountScreen.swift in Sources */,
+				DEBAC39827B44CB20075959B /* TransactionType.swift in Sources */,
+				DEBAC3AB27B7C8BB0075959B /* SelectAccountRow.swift in Sources */,
 				DE56446927B1A8C0000D6714 /* SelectAccountTypeScreen.swift in Sources */,
 				DE56447827B2F965000D6714 /* AccountCell.swift in Sources */,
+				DEBAC39427B445FC0075959B /* TransactionsViewModel.swift in Sources */,
 				DE56447627B2D6C5000D6714 /* AccountsViewModel.swift in Sources */,
 				DE56447A27B2F9AC000D6714 /* Double+NumberFormatter.swift in Sources */,
 				DE56446027B1A0C7000D6714 /* Account.swift in Sources */,
+				DEBAC3A327B597E30075959B /* SelectCategoryRow.swift in Sources */,
+				DEBAC39227B444A40075959B /* Transaction.swift in Sources */,
+				DEBAC3A127B593F70075959B /* SelectCategoryScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

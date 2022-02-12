@@ -13,6 +13,12 @@ final class Account: Object, ObjectKeyIdentifiable {
     @Persisted var name: String
     @Persisted var type: String
     @Persisted var balance: Double
+    @Persisted var transactions = RealmSwift.List<Transaction>()
+    
+    var bal: Double {
+        let balances = transactions.map({$0.amount})
+        return balance + balances.reduce(0) {$0 + $1}
+    }
 }
 
 final class AccountGroup: Object, ObjectKeyIdentifiable {
