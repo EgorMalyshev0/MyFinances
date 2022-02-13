@@ -34,6 +34,7 @@
 		DEBAC3A327B597E30075959B /* SelectCategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC3A227B597E30075959B /* SelectCategoryRow.swift */; };
 		DEBAC3A927B7C5BC0075959B /* SelectAccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC3A827B7C5BC0075959B /* SelectAccountScreen.swift */; };
 		DEBAC3AB27B7C8BB0075959B /* SelectAccountRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC3AA27B7C8BB0075959B /* SelectAccountRow.swift */; };
+		DEBAC3AD27B8FB260075959B /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC3AC27B8FB260075959B /* Date+Formatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		DEBAC3A227B597E30075959B /* SelectCategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryRow.swift; sourceTree = "<group>"; };
 		DEBAC3A827B7C5BC0075959B /* SelectAccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountScreen.swift; sourceTree = "<group>"; };
 		DEBAC3AA27B7C8BB0075959B /* SelectAccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountRow.swift; sourceTree = "<group>"; };
+		DEBAC3AC27B8FB260075959B /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				DE56447927B2F9AC000D6714 /* Double+NumberFormatter.swift */,
+				DEBAC3AC27B8FB260075959B /* Date+Formatter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				DE56447227B2D1A4000D6714 /* SelectAccountTypeCell.swift in Sources */,
 				DEBAC39F27B56E7B0075959B /* Category.swift in Sources */,
 				DEBAC39627B447200075959B /* TransactionRow.swift in Sources */,
+				DEBAC3AD27B8FB260075959B /* Date+Formatter.swift in Sources */,
 				DE56445E27B19F63000D6714 /* AddAccountScreen.swift in Sources */,
 				DE56446727B1A744000D6714 /* BalanceRow.swift in Sources */,
 				DE56444727AEC4C1000D6714 /* ContentView.swift in Sources */,

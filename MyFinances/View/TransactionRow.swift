@@ -20,6 +20,9 @@ struct TransactionRow: View {
                 Text(transaction.account.first?.name ?? "")
                     .foregroundColor(.secondary)
                     .font(.caption)
+                Text(transaction.date.dateString)
+                    .foregroundColor(.secondary)
+                    .font(.caption2)
             }
             Spacer()
             Text(transaction.amount.currencyString())

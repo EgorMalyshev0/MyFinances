@@ -16,6 +16,7 @@ struct AddTransactionScreen: View {
     @State var selectedTransactionTypeIndex: Int = 0
     @State var selectedCategory: Category?
     @State var selectedAccount: Account?
+    @State var selectedDate: Date = Date()
     @ObservedResults(Category.self) var categories
 
     
@@ -47,6 +48,7 @@ struct AddTransactionScreen: View {
                     Text(selectedAccount?.name ?? "Выберите счет")
                         .foregroundColor(selectedAccount == nil ? .secondary : .primary)
                 }
+                DatePicker("Дата", selection: $selectedDate, in: ...Date(), displayedComponents: .date)
             }
         }
         .toolbar {
@@ -61,7 +63,7 @@ struct AddTransactionScreen: View {
                     break
                 }
                 transaction.typeId = selectedTransactionTypeIndex
-                transaction.date = Date()
+                transaction.date = selectedDate
                 if let thawed = transactionsViewModel.accountsGroup.thaw(), let realm = thawed.realm {
                     if let acc = realm.object(ofType: Account.self, forPrimaryKey: selectedAccount?._id) {
                         try! realm.write({
