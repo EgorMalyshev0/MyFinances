@@ -12,6 +12,7 @@ struct MyFinancesApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.realmConfiguration, Constants.realmConfig)
         }
     }
 }

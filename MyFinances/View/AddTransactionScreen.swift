@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealmSwift
+import Intents
 
 struct AddTransactionScreen: View {
     
@@ -64,19 +65,25 @@ struct AddTransactionScreen: View {
                 }
                 transaction.typeId = selectedTransactionTypeIndex
                 transaction.date = selectedDate
+                var accountName: String?
+                var categoryName: String?
                 if let thawed = transactionsViewModel.accountsGroup.thaw(), let realm = thawed.realm {
                     if let acc = realm.object(ofType: Account.self, forPrimaryKey: selectedAccount?._id) {
+                        accountName = acc.name
                         try! realm.write({
                             acc.transactions.append(transaction)
                         })
                     }
                 }
                 if let thawed = categories.thaw(), let realm = thawed.realm, let cat = realm.object(ofType: Category.self, forPrimaryKey: selectedCategory?._id) {
+                    categoryName = cat.name
                     try! realm.write({
                         cat.transactions.append(transaction)
                     })
                 }
-                
+                if selectedTransactionTypeIndex == TransactionType.expense.rawValue {
+                    makeDonation(transaction: transaction, accountName: accountName ?? "", categoryName: categoryName ?? "")
+                }
                 presentationMode.wrappedValue.dismiss()
             }
             .disabled(amount.isEmpty || selectedCategory == nil || selectedAccount == nil)
@@ -84,6 +91,23 @@ struct AddTransactionScreen: View {
         .accentColor(.green)
         .navigationTitle("Новая операция")
         .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    func makeDonation(transaction: Transaction, accountName: String, categoryName: String) {
+        let intent = AddTransactionIntent()
+        intent.amount = NSNumber(value: transaction.amount)
+        intent.date = Calendar.current.dateComponents([.year, .month, .day], from: transaction.date)
+        intent.account = accountName
+        intent.category = categoryName
+        let interaction = INInteraction(intent: intent, response: nil)
+        
+        interaction.donate { error in
+            if let error = error {
+                print("Donation failed due to error: \(error.localizedDescription)")
+            } else {
+                print("Successfully donated interaction")
+            }
+        }
     }
     
 }

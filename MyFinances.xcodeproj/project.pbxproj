@@ -35,7 +35,71 @@
 		DEBAC3A927B7C5BC0075959B /* SelectAccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC3A827B7C5BC0075959B /* SelectAccountScreen.swift */; };
 		DEBAC3AB27B7C8BB0075959B /* SelectAccountRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC3AA27B7C8BB0075959B /* SelectAccountRow.swift */; };
 		DEBAC3AD27B8FB260075959B /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC3AC27B8FB260075959B /* Date+Formatter.swift */; };
+		DEBAC3B927BAB13F0075959B /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBAC3B827BAB13F0075959B /* Intents.framework */; };
+		DEBAC3BC27BAB13F0075959B /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC3BB27BAB13F0075959B /* IntentHandler.swift */; };
+		DEBAC3C427BAB13F0075959B /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBAC3C327BAB13F0075959B /* IntentsUI.framework */; };
+		DEBAC3C727BAB13F0075959B /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC3C627BAB13F0075959B /* IntentViewController.swift */; };
+		DEBAC3CA27BAB13F0075959B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEBAC3C827BAB13F0075959B /* MainInterface.storyboard */; };
+		DEBAC3CE27BAB13F0075959B /* CreateTransactionIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DEBAC3C227BAB13F0075959B /* CreateTransactionIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DEBAC3D127BAB13F0075959B /* CreateTransactionIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DEBAC3B627BAB13F0075959B /* CreateTransactionIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DEF57A7027BC1D370089FD31 /* CustomIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A6F27BC1D340089FD31 /* CustomIntents.intentdefinition */; settings = {ATTRIBUTES = (project_codegen, ); }; };
+		DEF57A7627BC1F910089FD31 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A7227BC1F910089FD31 /* Constants.swift */; };
+		DEF57A7727BC1F910089FD31 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A7327BC1F910089FD31 /* StorageService.swift */; };
+		DEF57A7827BC1F910089FD31 /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A7427BC1F910089FD31 /* TransactionManager.swift */; };
+		DEF57A7A27BC1FD70089FD31 /* AddTransactionIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A7527BC1F910089FD31 /* AddTransactionIntentHandler.swift */; };
+		DEF57A7B27BC206C0089FD31 /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A7427BC1F910089FD31 /* TransactionManager.swift */; };
+		DEF57A7C27BC20790089FD31 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A7327BC1F910089FD31 /* StorageService.swift */; };
+		DEF57A7E27BC20890089FD31 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = DEF57A7D27BC20890089FD31 /* Realm */; };
+		DEF57A8027BC208C0089FD31 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DEF57A7F27BC208C0089FD31 /* RealmSwift */; };
+		DEF57A8127BC209E0089FD31 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A7227BC1F910089FD31 /* Constants.swift */; };
+		DEF57A8227BC21A00089FD31 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC39E27B56E7B0075959B /* Category.swift */; };
+		DEF57A8327BC228D0089FD31 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE56445F27B1A0C7000D6714 /* Account.swift */; };
+		DEF57A8427BC27660089FD31 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC39127B444A40075959B /* Transaction.swift */; };
+		DEF57A8527BC27920089FD31 /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC39727B44CB20075959B /* TransactionType.swift */; };
+		DEF57A8627BC2EBF0089FD31 /* CustomIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A6F27BC1D340089FD31 /* CustomIntents.intentdefinition */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DEBAC3CC27BAB13F0075959B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE56443927AEC4C1000D6714 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DEBAC3C127BAB13F0075959B;
+			remoteInfo = CreateTransactionIntentUI;
+		};
+		DEBAC3CF27BAB13F0075959B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE56443927AEC4C1000D6714 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DEBAC3B527BAB13F0075959B;
+			remoteInfo = CreateTransactionIntent;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DEBAC3D827BAB13F0075959B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DEBAC3CE27BAB13F0075959B /* CreateTransactionIntentUI.appex in Embed App Extensions */,
+				DEBAC3D127BAB13F0075959B /* CreateTransactionIntent.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEBAC41F27BBE3280075959B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		DE56444127AEC4C1000D6714 /* MyFinances.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFinances.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +129,24 @@
 		DEBAC3A827B7C5BC0075959B /* SelectAccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountScreen.swift; sourceTree = "<group>"; };
 		DEBAC3AA27B7C8BB0075959B /* SelectAccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountRow.swift; sourceTree = "<group>"; };
 		DEBAC3AC27B8FB260075959B /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
+		DEBAC3B027B942930075959B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DEBAC3B127BAB0F30075959B /* MyFinances.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyFinances.entitlements; sourceTree = "<group>"; };
+		DEBAC3B627BAB13F0075959B /* CreateTransactionIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CreateTransactionIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEBAC3B827BAB13F0075959B /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		DEBAC3BB27BAB13F0075959B /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		DEBAC3BD27BAB13F0075959B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEBAC3C227BAB13F0075959B /* CreateTransactionIntentUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CreateTransactionIntentUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEBAC3C327BAB13F0075959B /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		DEBAC3C627BAB13F0075959B /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		DEBAC3C927BAB13F0075959B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		DEBAC3CB27BAB13F0075959B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEBAC3EF27BADB8C0075959B /* CreateTransactionIntentUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CreateTransactionIntentUI.entitlements; sourceTree = "<group>"; };
+		DEBAC3F027BADBA70075959B /* CreateTransactionIntent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CreateTransactionIntent.entitlements; sourceTree = "<group>"; };
+		DEF57A6F27BC1D340089FD31 /* CustomIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = CustomIntents.intentdefinition; sourceTree = "<group>"; };
+		DEF57A7227BC1F910089FD31 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DEF57A7327BC1F910089FD31 /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		DEF57A7427BC1F910089FD31 /* TransactionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
+		DEF57A7527BC1F910089FD31 /* AddTransactionIntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionIntentHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +159,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DEBAC3B327BAB13F0075959B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEF57A8027BC208C0089FD31 /* RealmSwift in Frameworks */,
+				DEF57A7E27BC20890089FD31 /* Realm in Frameworks */,
+				DEBAC3B927BAB13F0075959B /* Intents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEBAC3BF27BAB13F0075959B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEBAC3C427BAB13F0075959B /* IntentsUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -84,6 +184,9 @@
 			isa = PBXGroup;
 			children = (
 				DE56444327AEC4C1000D6714 /* MyFinances */,
+				DEBAC3BA27BAB13F0075959B /* CreateTransactionIntent */,
+				DEBAC3C527BAB13F0075959B /* CreateTransactionIntentUI */,
+				DEBAC3B727BAB13F0075959B /* Frameworks */,
 				DE56444227AEC4C1000D6714 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,6 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				DE56444127AEC4C1000D6714 /* MyFinances.app */,
+				DEBAC3B627BAB13F0075959B /* CreateTransactionIntent.appex */,
+				DEBAC3C227BAB13F0075959B /* CreateTransactionIntentUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,7 +204,10 @@
 		DE56444327AEC4C1000D6714 /* MyFinances */ = {
 			isa = PBXGroup;
 			children = (
+				DEBAC3B127BAB0F30075959B /* MyFinances.entitlements */,
+				DEBAC3B027B942930075959B /* Info.plist */,
 				DE56444427AEC4C1000D6714 /* MyFinancesApp.swift */,
+				DEF57A7127BC1F910089FD31 /* Shared */,
 				DE56447327B2D63F000D6714 /* View */,
 				DE56446127B1A0CE000D6714 /* Models */,
 				DE56447B27B2F9C0000D6714 /* Extensions */,
@@ -120,12 +228,8 @@
 		DE56446127B1A0CE000D6714 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DE56445F27B1A0C7000D6714 /* Account.swift */,
 				DE56447527B2D6C5000D6714 /* AccountsViewModel.swift */,
 				DEBAC39327B445FC0075959B /* TransactionsViewModel.swift */,
-				DEBAC39E27B56E7B0075959B /* Category.swift */,
-				DEBAC39127B444A40075959B /* Transaction.swift */,
-				DEBAC39727B44CB20075959B /* TransactionType.swift */,
 				DE56446227B1A212000D6714 /* AccountType.swift */,
 			);
 			path = Models;
@@ -177,6 +281,52 @@
 			name = AddTransactionScreen;
 			sourceTree = "<group>";
 		};
+		DEBAC3B727BAB13F0075959B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DEBAC3B827BAB13F0075959B /* Intents.framework */,
+				DEBAC3C327BAB13F0075959B /* IntentsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DEBAC3BA27BAB13F0075959B /* CreateTransactionIntent */ = {
+			isa = PBXGroup;
+			children = (
+				DEBAC3F027BADBA70075959B /* CreateTransactionIntent.entitlements */,
+				DEF57A6F27BC1D340089FD31 /* CustomIntents.intentdefinition */,
+				DEBAC3BB27BAB13F0075959B /* IntentHandler.swift */,
+				DEF57A7527BC1F910089FD31 /* AddTransactionIntentHandler.swift */,
+				DEBAC3BD27BAB13F0075959B /* Info.plist */,
+			);
+			path = CreateTransactionIntent;
+			sourceTree = "<group>";
+		};
+		DEBAC3C527BAB13F0075959B /* CreateTransactionIntentUI */ = {
+			isa = PBXGroup;
+			children = (
+				DEBAC3EF27BADB8C0075959B /* CreateTransactionIntentUI.entitlements */,
+				DEBAC3C627BAB13F0075959B /* IntentViewController.swift */,
+				DEBAC3C827BAB13F0075959B /* MainInterface.storyboard */,
+				DEBAC3CB27BAB13F0075959B /* Info.plist */,
+			);
+			path = CreateTransactionIntentUI;
+			sourceTree = "<group>";
+		};
+		DEF57A7127BC1F910089FD31 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				DEF57A7227BC1F910089FD31 /* Constants.swift */,
+				DEF57A7327BC1F910089FD31 /* StorageService.swift */,
+				DEF57A7427BC1F910089FD31 /* TransactionManager.swift */,
+				DE56445F27B1A0C7000D6714 /* Account.swift */,
+				DEBAC39E27B56E7B0075959B /* Category.swift */,
+				DEBAC39127B444A40075959B /* Transaction.swift */,
+				DEBAC39727B44CB20075959B /* TransactionType.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -187,10 +337,14 @@
 				DE56443D27AEC4C1000D6714 /* Sources */,
 				DE56443E27AEC4C1000D6714 /* Frameworks */,
 				DE56443F27AEC4C1000D6714 /* Resources */,
+				DEBAC3D827BAB13F0075959B /* Embed App Extensions */,
+				DEBAC41F27BBE3280075959B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DEBAC3CD27BAB13F0075959B /* PBXTargetDependency */,
+				DEBAC3D027BAB13F0075959B /* PBXTargetDependency */,
 			);
 			name = MyFinances;
 			packageProductDependencies = (
@@ -200,6 +354,44 @@
 			productName = MyFinances;
 			productReference = DE56444127AEC4C1000D6714 /* MyFinances.app */;
 			productType = "com.apple.product-type.application";
+		};
+		DEBAC3B527BAB13F0075959B /* CreateTransactionIntent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DEBAC3D527BAB13F0075959B /* Build configuration list for PBXNativeTarget "CreateTransactionIntent" */;
+			buildPhases = (
+				DEBAC3B227BAB13F0075959B /* Sources */,
+				DEBAC3B327BAB13F0075959B /* Frameworks */,
+				DEBAC3B427BAB13F0075959B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CreateTransactionIntent;
+			packageProductDependencies = (
+				DEF57A7D27BC20890089FD31 /* Realm */,
+				DEF57A7F27BC208C0089FD31 /* RealmSwift */,
+			);
+			productName = CreateTransactionIntent;
+			productReference = DEBAC3B627BAB13F0075959B /* CreateTransactionIntent.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		DEBAC3C127BAB13F0075959B /* CreateTransactionIntentUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DEBAC3D227BAB13F0075959B /* Build configuration list for PBXNativeTarget "CreateTransactionIntentUI" */;
+			buildPhases = (
+				DEBAC3BE27BAB13F0075959B /* Sources */,
+				DEBAC3BF27BAB13F0075959B /* Frameworks */,
+				DEBAC3C027BAB13F0075959B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CreateTransactionIntentUI;
+			productName = CreateTransactionIntentUI;
+			productReference = DEBAC3C227BAB13F0075959B /* CreateTransactionIntentUI.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -212,6 +404,12 @@
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					DE56444027AEC4C1000D6714 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					DEBAC3B527BAB13F0075959B = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					DEBAC3C127BAB13F0075959B = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
@@ -233,6 +431,8 @@
 			projectRoot = "";
 			targets = (
 				DE56444027AEC4C1000D6714 /* MyFinances */,
+				DEBAC3B527BAB13F0075959B /* CreateTransactionIntent */,
+				DEBAC3C127BAB13F0075959B /* CreateTransactionIntentUI */,
 			);
 		};
 /* End PBXProject section */
@@ -247,6 +447,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DEBAC3B427BAB13F0075959B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEBAC3C027BAB13F0075959B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEBAC3CA27BAB13F0075959B /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -254,18 +469,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEF57A7627BC1F910089FD31 /* Constants.swift in Sources */,
 				DE56445C27B19CFE000D6714 /* AddTransactionScreen.swift in Sources */,
 				DE56447227B2D1A4000D6714 /* SelectAccountTypeCell.swift in Sources */,
 				DEBAC39F27B56E7B0075959B /* Category.swift in Sources */,
 				DEBAC39627B447200075959B /* TransactionRow.swift in Sources */,
 				DEBAC3AD27B8FB260075959B /* Date+Formatter.swift in Sources */,
 				DE56445E27B19F63000D6714 /* AddAccountScreen.swift in Sources */,
+				DEF57A7727BC1F910089FD31 /* StorageService.swift in Sources */,
 				DE56446727B1A744000D6714 /* BalanceRow.swift in Sources */,
 				DE56444727AEC4C1000D6714 /* ContentView.swift in Sources */,
 				DE56446327B1A212000D6714 /* AccountType.swift in Sources */,
+				DEF57A8627BC2EBF0089FD31 /* CustomIntents.intentdefinition in Sources */,
 				DE56445327B007D9000D6714 /* TransactionsScreen.swift in Sources */,
 				DE56444527AEC4C1000D6714 /* MyFinancesApp.swift in Sources */,
 				DE56445527B0087F000D6714 /* AccountsScreen.swift in Sources */,
+				DEF57A7827BC1F910089FD31 /* TransactionManager.swift in Sources */,
 				DEBAC3A927B7C5BC0075959B /* SelectAccountScreen.swift in Sources */,
 				DEBAC39827B44CB20075959B /* TransactionType.swift in Sources */,
 				DEBAC3AB27B7C8BB0075959B /* SelectAccountRow.swift in Sources */,
@@ -281,7 +500,56 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DEBAC3B227BAB13F0075959B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEF57A7C27BC20790089FD31 /* StorageService.swift in Sources */,
+				DEF57A7B27BC206C0089FD31 /* TransactionManager.swift in Sources */,
+				DEBAC3BC27BAB13F0075959B /* IntentHandler.swift in Sources */,
+				DEF57A7027BC1D370089FD31 /* CustomIntents.intentdefinition in Sources */,
+				DEF57A7A27BC1FD70089FD31 /* AddTransactionIntentHandler.swift in Sources */,
+				DEF57A8327BC228D0089FD31 /* Account.swift in Sources */,
+				DEF57A8527BC27920089FD31 /* TransactionType.swift in Sources */,
+				DEF57A8127BC209E0089FD31 /* Constants.swift in Sources */,
+				DEF57A8227BC21A00089FD31 /* Category.swift in Sources */,
+				DEF57A8427BC27660089FD31 /* Transaction.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEBAC3BE27BAB13F0075959B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEBAC3C727BAB13F0075959B /* IntentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DEBAC3CD27BAB13F0075959B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DEBAC3C127BAB13F0075959B /* CreateTransactionIntentUI */;
+			targetProxy = DEBAC3CC27BAB13F0075959B /* PBXContainerItemProxy */;
+		};
+		DEBAC3D027BAB13F0075959B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DEBAC3B527BAB13F0075959B /* CreateTransactionIntent */;
+			targetProxy = DEBAC3CF27BAB13F0075959B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DEBAC3C827BAB13F0075959B /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DEBAC3C927BAB13F0075959B /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DE56444D27AEC4C3000D6714 /* Debug */ = {
@@ -403,14 +671,18 @@
 		DE56445027AEC4C3000D6714 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyFinances/MyFinances.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MyFinances/Preview Content\"";
 				DEVELOPMENT_TEAM = 3A42PGL7M3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyFinances/Info.plist;
+				INFOPLIST_KEY_NSSiriUsageDescription = "Siri needs to automatically add transactions";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -434,14 +706,18 @@
 		DE56445127AEC4C3000D6714 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyFinances/MyFinances.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MyFinances/Preview Content\"";
 				DEVELOPMENT_TEAM = 3A42PGL7M3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyFinances/Info.plist;
+				INFOPLIST_KEY_NSSiriUsageDescription = "Siri needs to automatically add transactions";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -456,6 +732,114 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.egm.MyFinances;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		DEBAC3D327BAB13F0075959B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CreateTransactionIntentUI/CreateTransactionIntentUI.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3A42PGL7M3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CreateTransactionIntentUI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CreateTransactionIntentUI;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.egm.MyFinances.CreateTransactionIntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DEBAC3D427BAB13F0075959B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CreateTransactionIntentUI/CreateTransactionIntentUI.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3A42PGL7M3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CreateTransactionIntentUI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CreateTransactionIntentUI;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.egm.MyFinances.CreateTransactionIntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DEBAC3D627BAB13F0075959B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CreateTransactionIntent/CreateTransactionIntent.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3A42PGL7M3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CreateTransactionIntent/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CreateTransactionIntent;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.egm.MyFinances.CreateTransactionIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		DEBAC3D727BAB13F0075959B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CreateTransactionIntent/CreateTransactionIntent.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3A42PGL7M3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CreateTransactionIntent/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CreateTransactionIntent;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.egm.MyFinances.CreateTransactionIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -483,6 +867,24 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		DEBAC3D227BAB13F0075959B /* Build configuration list for PBXNativeTarget "CreateTransactionIntentUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEBAC3D327BAB13F0075959B /* Debug */,
+				DEBAC3D427BAB13F0075959B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DEBAC3D527BAB13F0075959B /* Build configuration list for PBXNativeTarget "CreateTransactionIntent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEBAC3D627BAB13F0075959B /* Debug */,
+				DEBAC3D727BAB13F0075959B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -503,6 +905,16 @@
 			productName = Realm;
 		};
 		DE56448027B30171000D6714 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE56447D27B30171000D6714 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+		DEF57A7D27BC20890089FD31 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE56447D27B30171000D6714 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		DEF57A7F27BC208C0089FD31 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DE56447D27B30171000D6714 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = RealmSwift;
