@@ -31,6 +31,10 @@
 				<dict>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Создать операцию с суммой ${amount}, категорией ${category}, со счета ${account}, на ${date}</string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>XzNXS1</string>
 					<key>INIntentParameterCombinationUpdatesLinked</key>
 					<true/>
 				</dict>
@@ -44,7 +48,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Добавить транзакцию?</string>
+					<string>Добавить расход?</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>1TTF8g</string>
 				</dict>
@@ -54,8 +58,10 @@
 				<dict>
 					<key>INIntentParameterConfigurable</key>
 					<true/>
+					<key>INIntentParameterCustomDisambiguation</key>
+					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>Amount</string>
+					<string>Сумма</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>5kx98K</string>
 					<key>INIntentParameterDisplayPriority</key>
@@ -87,6 +93,16 @@
 							<key>INIntentParameterPromptDialogType</key>
 							<string>Primary</string>
 						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Для подтверждения, вы имели в виду ‘${amount}’?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>FaIdbQ</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Confirmation</string>
+						</dict>
 					</array>
 					<key>INIntentParameterSupportsResolution</key>
 					<true/>
@@ -99,30 +115,36 @@
 						<dict>
 							<key>INIntentParameterUnsupportedReasonCode</key>
 							<string>negativeNumbersNotSupported</string>
+							<key>INIntentParameterUnsupportedReasonCustom</key>
+							<true/>
 							<key>INIntentParameterUnsupportedReasonDefault</key>
 							<true/>
 							<key>INIntentParameterUnsupportedReasonFormatString</key>
-							<string>${displayName} can’t be negative.</string>
+							<string>${displayName} не может быть отрицательной</string>
 							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
 							<string>g8nNUn</string>
 						</dict>
 						<dict>
 							<key>INIntentParameterUnsupportedReasonCode</key>
 							<string>greaterThanMaximumValue</string>
+							<key>INIntentParameterUnsupportedReasonCustom</key>
+							<true/>
 							<key>INIntentParameterUnsupportedReasonDefault</key>
 							<true/>
 							<key>INIntentParameterUnsupportedReasonFormatString</key>
-							<string>${displayName} can’t be higher than ${maximumValue}.</string>
+							<string>${displayName} не может быть больше, чем ${maximumValue}.</string>
 							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
 							<string>IA28uC</string>
 						</dict>
 						<dict>
 							<key>INIntentParameterUnsupportedReasonCode</key>
 							<string>lessThanMinimumValue</string>
+							<key>INIntentParameterUnsupportedReasonCustom</key>
+							<true/>
 							<key>INIntentParameterUnsupportedReasonDefault</key>
 							<true/>
 							<key>INIntentParameterUnsupportedReasonFormatString</key>
-							<string>${displayName} can’t be lower than ${minimumValue}.</string>
+							<string>${displayName} не может быть меньше, чем ${minimumValue}.</string>
 							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
 							<string>qI5r9R</string>
 						</dict>
@@ -134,7 +156,7 @@
 					<key>INIntentParameterCustomDisambiguation</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>Category</string>
+					<string>Категория</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>qHic2F</string>
 					<key>INIntentParameterDisplayPriority</key>
@@ -153,12 +175,20 @@
 						<dict>
 							<key>INIntentParameterPromptDialogCustom</key>
 							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Какая из категорий?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>0jGiEh</string>
 							<key>INIntentParameterPromptDialogType</key>
 							<string>Configuration</string>
 						</dict>
 						<dict>
 							<key>INIntentParameterPromptDialogCustom</key>
 							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Какая категория?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>nRIiMT</string>
 							<key>INIntentParameterPromptDialogType</key>
 							<string>Primary</string>
 						</dict>
@@ -166,7 +196,7 @@
 							<key>INIntentParameterPromptDialogCustom</key>
 							<true/>
 							<key>INIntentParameterPromptDialogFormatString</key>
-							<string>There are ${count} options matching ‘${category}’.</string>
+							<string>Всего ${count} вариантов ‘${category}’.</string>
 							<key>INIntentParameterPromptDialogFormatStringID</key>
 							<string>BSqYo8</string>
 							<key>INIntentParameterPromptDialogType</key>
@@ -176,11 +206,31 @@
 							<key>INIntentParameterPromptDialogCustom</key>
 							<true/>
 							<key>INIntentParameterPromptDialogFormatString</key>
-							<string>Just to confirm, you wanted ‘${category}’?</string>
+							<string>Для подтверждения, вы имели в виду ‘${category}’?</string>
 							<key>INIntentParameterPromptDialogFormatStringID</key>
 							<string>O2vQNb</string>
 							<key>INIntentParameterPromptDialogType</key>
 							<string>Confirmation</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Какая из них?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>Ik9Li6</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>DisambiguationSelection</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Также есть еще,</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>cbTW6l</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>SubsequentIntroduction</string>
 						</dict>
 					</array>
 					<key>INIntentParameterSupportsDynamicEnumeration</key>
@@ -200,7 +250,7 @@
 					<key>INIntentParameterCustomDisambiguation</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>Account</string>
+					<string>Счет</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>wqkIy4</string>
 					<key>INIntentParameterDisplayPriority</key>
@@ -225,6 +275,10 @@
 						<dict>
 							<key>INIntentParameterPromptDialogCustom</key>
 							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>На какой счет записать операцию?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>oSoxFh</string>
 							<key>INIntentParameterPromptDialogType</key>
 							<string>Primary</string>
 						</dict>
@@ -232,7 +286,7 @@
 							<key>INIntentParameterPromptDialogCustom</key>
 							<true/>
 							<key>INIntentParameterPromptDialogFormatString</key>
-							<string>There are ${count} options matching ‘${account}’.</string>
+							<string>Всего ${count} вариантов  ‘${account}’.</string>
 							<key>INIntentParameterPromptDialogFormatStringID</key>
 							<string>9ebWzv</string>
 							<key>INIntentParameterPromptDialogType</key>
@@ -242,11 +296,31 @@
 							<key>INIntentParameterPromptDialogCustom</key>
 							<true/>
 							<key>INIntentParameterPromptDialogFormatString</key>
-							<string>Just to confirm, you wanted ‘${account}’?</string>
+							<string>Для подтверждения, вы имели в виду ‘${account}’?</string>
 							<key>INIntentParameterPromptDialogFormatStringID</key>
 							<string>2FU7z3</string>
 							<key>INIntentParameterPromptDialogType</key>
 							<string>Confirmation</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Какой из них?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>sCdgj5</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>DisambiguationSelection</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Также есть еще,</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>b5T0j4</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>SubsequentIntroduction</string>
 						</dict>
 					</array>
 					<key>INIntentParameterSupportsDynamicEnumeration</key>
@@ -264,7 +338,7 @@
 					<key>INIntentParameterConfigurable</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>Date</string>
+					<string>Дата</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>RSJWsA</string>
 					<key>INIntentParameterDisplayPriority</key>
@@ -272,7 +346,7 @@
 					<key>INIntentParameterMetadata</key>
 					<dict>
 						<key>INIntentParameterMetadataDateStyle</key>
-						<string>Full</string>
+						<string>Short</string>
 						<key>INIntentParameterMetadataFormat</key>
 						<string>Style</string>
 						<key>INIntentParameterMetadataTemplateID</key>
@@ -280,7 +354,7 @@
 						<key>INIntentParameterMetadataTimeStyle</key>
 						<string>Full</string>
 						<key>INIntentParameterMetadataType</key>
-						<string>DateTime</string>
+						<string>Date</string>
 					</dict>
 					<key>INIntentParameterName</key>
 					<string>date</string>
@@ -309,6 +383,19 @@
 					<integer>9</integer>
 					<key>INIntentParameterType</key>
 					<string>DateComponents</string>
+					<key>INIntentParameterUnsupportedReasons</key>
+					<array>
+						<dict>
+							<key>INIntentParameterUnsupportedReasonCode</key>
+							<string>dateIsLaterThanToday</string>
+							<key>INIntentParameterUnsupportedReasonCustom</key>
+							<true/>
+							<key>INIntentParameterUnsupportedReasonFormatString</key>
+							<string>Вы не можете выбрать дату позже, чем сегодня</string>
+							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
+							<string>7PKMKT</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 			<key>INIntentResponse</key>
@@ -317,11 +404,11 @@
 				<array>
 					<dict>
 						<key>INIntentResponseCodeConciseFormatString</key>
-						<string>Successfully created transaction!</string>
+						<string>Расходная операция успешно создана!</string>
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>BYyFJr</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Successfully created transaction!</string>
+						<string>Расходная операция успешно создана!</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>V52RA2</string>
 						<key>INIntentResponseCodeName</key>
@@ -331,11 +418,11 @@
 					</dict>
 					<dict>
 						<key>INIntentResponseCodeConciseFormatString</key>
-						<string>Sorry, transaction adding did fail</string>
+						<string>Не удалось создать расходную операцию</string>
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>p6ExaP</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Sorry, transaction adding did fail</string>
+						<string>Не удалось создать расходную операцию</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>WndlyM</string>
 						<key>INIntentResponseCodeName</key>
@@ -344,7 +431,7 @@
 				</array>
 			</dict>
 			<key>INIntentTitle</key>
-			<string>Add Transaction</string>
+			<string>Добавить расходную операцию</string>
 			<key>INIntentTitleID</key>
 			<string>mecRTm</string>
 			<key>INIntentType</key>

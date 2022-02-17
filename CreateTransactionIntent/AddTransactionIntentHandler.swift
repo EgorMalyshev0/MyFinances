@@ -7,6 +7,7 @@
 
 import Foundation
 import Intents
+import os.log
 
 public class AddTransactionIntentHandler: NSObject, AddTransactionIntentHandling {
     
@@ -15,6 +16,7 @@ public class AddTransactionIntentHandler: NSObject, AddTransactionIntentHandling
             let dateComponents = intent.date,
             let categoryName = intent.category,
             let accountName = intent.account else {
+                Logger().debug("INTENT DEBUG: FAILED TO HANDLE")
                 completion(AddTransactionIntentResponse(code: .failure, userActivity: nil))
                 return
             }
@@ -25,10 +27,11 @@ public class AddTransactionIntentHandler: NSObject, AddTransactionIntentHandling
         let transactionManager = TransactionManager()
         guard transactionManager.updateCategory(withName: categoryName, with: transaction),
               transactionManager.updateAccount(withName: accountName, with: transaction) else {
+                  Logger().debug("INTENT DEBUG: FAILED TO HANDLE WITH TRANSACTION ADDING")
                   completion(AddTransactionIntentResponse(code: .failure, userActivity: nil))
                   return
               }
-        completion(AddTransactionIntentResponse())
+        completion(AddTransactionIntentResponse(code: .success, userActivity: nil))
     }
     
     func resolveAmount(for intent: AddTransactionIntent, with completion: @escaping (AddTransactionAmountResolutionResult) -> Void) {
@@ -48,24 +51,32 @@ public class AddTransactionIntentHandler: NSObject, AddTransactionIntentHandling
     }
     
     func resolveAccount(for intent: AddTransactionIntent, with completion: @escaping (INStringResolutionResult) -> Void) {
-        if let account = intent.category {
+        if let account = intent.account {
             completion(INStringResolutionResult.success(with: account))
         } else {
             completion(INStringResolutionResult.needsValue())
         }
     }
     
-    func resolveDate(for intent: AddTransactionIntent, with completion: @escaping (INDateComponentsResolutionResult) -> Void) {
-        if let date = intent.date {
-            completion(INDateComponentsResolutionResult.success(with: date))
+    func resolveDate(for intent: AddTransactionIntent, with completion: @escaping (AddTransactionDateResolutionResult) -> Void) {
+        guard let dateComponents = intent.date else {
+            completion(AddTransactionDateResolutionResult.needsValue())
+            return
+        }
+        guard let date = Calendar.current.date(from: dateComponents) else {
+            completion(AddTransactionDateResolutionResult.unsupported())
+            return
+        }
+        if date > Date()  {
+            completion(AddTransactionDateResolutionResult.unsupported(forReason: .dateIsLaterThanToday))
         } else {
-            completion(INDateComponentsResolutionResult.needsValue())
+            completion(AddTransactionDateResolutionResult.success(with: dateComponents))
         }
     }
 
     func provideCategoryOptionsCollection(for intent: AddTransactionIntent, searchTerm: String?, with completion: @escaping (INObjectCollection<NSString>?, Error?) -> Void) {
         let transactionManager = TransactionManager()
-        let availableCategories = transactionManager.findStoredCategories().map({NSString(string: $0)})
+        let availableCategories = transactionManager.findStoredCategories(withType: .expense).map({NSString(string: $0)})
         completion(INObjectCollection(items: availableCategories), nil)
     }
     

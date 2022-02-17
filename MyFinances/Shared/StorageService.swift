@@ -22,7 +22,7 @@ final class StorageService {
     }
     
     func findObject<T: Object>(ofType type: T.Type, byName name: String) -> T? {
-        return self.realm.objects(T.self).filter("name == \(name)").first
+        return self.realm.objects(T.self).filter("name == %@", name).first
     }
     
     func updateAccount(withName name: String, with transaction: Transaction) -> Bool {

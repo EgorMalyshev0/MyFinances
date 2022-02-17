@@ -16,6 +16,7 @@ extension Date {
             return "Вчера"
         } else {
             let formatter = DateFormatter()
+            formatter.locale = Locale(identifier: "ru_RU")
             formatter.dateFormat = "d MMMM yyyy"
             return formatter.string(from: self)
         }

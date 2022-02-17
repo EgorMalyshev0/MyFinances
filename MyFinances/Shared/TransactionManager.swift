@@ -10,9 +10,9 @@ import Foundation
 final class TransactionManager {
     private let storageService: StorageService = .init()
     
-    func findStoredCategories() -> [String] {
+    func findStoredCategories(withType type: TransactionType) -> [String] {
         let results = storageService.findObjects(ofType: Category.self)
-        return results.map({$0.name})
+        return results.filter({$0.transactionTypeId == type.rawValue}).map({$0.name})
     }
     
     func findStoredAccounts() -> [String] {

@@ -50,6 +50,8 @@ struct AddTransactionScreen: View {
                         .foregroundColor(selectedAccount == nil ? .secondary : .primary)
                 }
                 DatePicker("Дата", selection: $selectedDate, in: ...Date(), displayedComponents: .date)
+                    .environment(\.locale, Locale(identifier: "ru_RU"))
+                    .labelsHidden()
             }
         }
         .toolbar {
