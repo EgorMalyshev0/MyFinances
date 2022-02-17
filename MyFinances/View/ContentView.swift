@@ -12,8 +12,6 @@ struct ContentView: View {
     
     @State private var selection: Int = 0
     @ObservedResults(AccountGroup.self) var accountGroups
-    @ObservedResults(TransactionGroup.self) var transactionGroups
-    @ObservedResults(Category.self) var categories
     
     var body: some View {
         TabView(selection: $selection) {
@@ -34,13 +32,13 @@ struct ContentView: View {
             }
             .tag(0)
             NavigationView {
-                if let group = transactionGroups.first, let accGroup = accountGroups.first {
-                    let viewModel = TransactionsViewModel(transactionsGroup: group, accountsGroup: accGroup)
+                if let accGroup = accountGroups.first {
+                    let viewModel = TransactionsViewModel(accountsGroup: accGroup)
                     TransactionsScreen(transactionsViewModel: viewModel)
                 } else {
                     ProgressView()
                         .onAppear {
-                        $transactionGroups.append(TransactionGroup())
+                        $accountGroups.append(AccountGroup())
                     }
                 }        
             }
@@ -51,20 +49,6 @@ struct ContentView: View {
             .tag(1)
         }
         .accentColor(.green)
-        .onAppear {
-            if categories.isEmpty {
-                DefaultCategoryMaker.categories().forEach({$categories.append($0)})
-            }
-        }
     }
     
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            ContentView()
-                .previewDevice("iPhone 11")
-        }
-    }
 }

@@ -22,7 +22,7 @@ struct AccountsScreen: View {
             ForEach(accountsViewModel.accountGroup.accounts) {
                 AccountCell(account: $0)
             }
-            .onDelete(perform: $accountsViewModel.accountGroup.accounts.remove)
+//            .onDelete(perform: $accountsViewModel.accountGroup.accounts.remove)
         }
         .toolbar {
             Button {

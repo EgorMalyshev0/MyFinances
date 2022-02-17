@@ -12,7 +12,7 @@ class AccountsViewModel: ObservableObject {
     @ObservedRealmObject var accountGroup: AccountGroup
     
     var balance: Double {
-        let balances = accountGroup.accounts.map({$0.bal})
+        let balances = accountGroup.accounts.map({$0.balance})
         return balances.reduce(0) {$0 + $1}
     }
     

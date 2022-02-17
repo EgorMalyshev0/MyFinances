@@ -14,7 +14,7 @@ struct AddTransactionScreen: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var transactionsViewModel: TransactionsViewModel
     @State var amount: String = ""
-    @State var selectedTransactionTypeIndex: Int = 0
+    @State var selectedTransactionTypeId: Int = 0
     @State var selectedCategory: Category?
     @State var selectedAccount: Account?
     @State var selectedDate: Date = Date()
@@ -25,20 +25,20 @@ struct AddTransactionScreen: View {
 
     var body: some View {
         VStack {
-            Picker("Выберите тип операции", selection: $selectedTransactionTypeIndex) {
+            Picker("Выберите тип операции", selection: $selectedTransactionTypeId) {
                 ForEach(0..<transactionTypes.count) { index in
                     Text(transactionTypes[index].textDescription)
                 }
             }
             .padding(.horizontal)
             .pickerStyle(SegmentedPickerStyle())
-            .onChange(of: selectedTransactionTypeIndex) { _ in
+            .onChange(of: selectedTransactionTypeId) { _ in
                 selectedCategory = nil
             }
             List {
                 BalanceRow(balance: $amount, title: "Сумма")
                 NavigationLink {
-                    SelectCategoryScreen(transactionTypeId: selectedTransactionTypeIndex, selectedCategory: $selectedCategory)
+                    SelectCategoryScreen(transactionTypeId: selectedTransactionTypeId, selectedCategory: $selectedCategory)
                 } label: {
                     Text(selectedCategory?.name ?? "Выберите категорию")
                         .foregroundColor(selectedCategory == nil ? .secondary : .primary)
@@ -57,15 +57,8 @@ struct AddTransactionScreen: View {
         .toolbar {
             Button("Сохранить") {
                 let transaction = Transaction()
-                switch selectedTransactionTypeIndex {
-                case TransactionType.expense.rawValue:
-                    transaction.amount = (-(Double(amount) ?? 0))
-                case TransactionType.income.rawValue:
-                    transaction.amount = Double(amount) ?? 0
-                default:
-                    break
-                }
-                transaction.typeId = selectedTransactionTypeIndex
+                transaction.amount = Double(amount) ?? 0
+                transaction.typeId = selectedTransactionTypeId
                 transaction.date = selectedDate
                 var accountName: String?
                 var categoryName: String?
@@ -83,7 +76,7 @@ struct AddTransactionScreen: View {
                         cat.transactions.append(transaction)
                     })
                 }
-                if selectedTransactionTypeIndex == TransactionType.expense.rawValue {
+                if selectedTransactionTypeId == TransactionType.expense.rawValue {
                     makeDonation(transaction: transaction, accountName: accountName ?? "", categoryName: categoryName ?? "")
                 }
                 presentationMode.wrappedValue.dismiss()

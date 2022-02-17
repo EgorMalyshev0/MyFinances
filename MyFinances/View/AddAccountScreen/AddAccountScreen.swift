@@ -29,7 +29,7 @@ struct AddAccountScreen: View {
             Button("Сохранить") {
                 let account = Account()
                 account.name = accountName
-                account.balance = Double(balance) ?? 0
+                account.startBalance = Double(balance) ?? 0
                 account.type = accountType.rawValue
                 $accountsViewModel.accountGroup.accounts.append(account)
                 presentationMode.wrappedValue.dismiss()

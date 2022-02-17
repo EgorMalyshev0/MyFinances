@@ -12,12 +12,19 @@ final class Account: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var name: String
     @Persisted var type: String
-    @Persisted var balance: Double
+    @Persisted var startBalance: Double
     @Persisted var transactions = RealmSwift.List<Transaction>()
     
-    var bal: Double {
-        let balances = transactions.map({$0.amount})
-        return balance + balances.reduce(0) {$0 + $1}
+    var balance: Double {
+        var balance = startBalance
+        transactions.forEach {
+            if $0.typeId == TransactionType.expense.rawValue {
+                balance -= $0.amount
+            } else if $0.typeId == TransactionType.income.rawValue {
+                balance += $0.amount
+            }
+        }
+        return balance
     }
 }
 

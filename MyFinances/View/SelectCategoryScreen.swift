@@ -20,5 +20,11 @@ struct SelectCategoryScreen: View {
             SelectCategoryRow(category: category, selectedCategory: $selectedCategory)
         }
         .accentColor(.green)
+        .onAppear {
+            if categories.isEmpty {
+                DefaultCategoryMaker.categories().forEach({$categories.append($0)})
+            }
+        }
     }
+        
 }
