@@ -16,21 +16,28 @@ import IntentsUI
 
 class IntentViewController: UIViewController, INUIHostedViewControlling {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var accountLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
         
     // MARK: - INUIHostedViewControlling
     
-    // Prepare your view controller for the interaction to handle.
     func configureView(for parameters: Set<INParameter>, of interaction: INInteraction, interactiveBehavior: INUIInteractiveBehavior, context: INUIHostedViewContext, completion: @escaping (Bool, Set<INParameter>, CGSize) -> Void) {
-        // Do configuration here, including preparing views and calculating a desired size for presentation.
-        completion(true, parameters, self.desiredSize)
+        guard let intent = interaction.intent as? AddTransactionIntent else {
+            completion(false, Set(), .zero)
+            return
+        }
+            categoryLabel.text = intent.category
+            accountLabel.text = intent.account
+            dateLabel.text = Calendar.current.date(from: intent.date ?? DateComponents())?.dateString
+            amountLabel.text = Double(truncating: intent.amount ?? 0).currencyString()
+            completion(true, parameters, self.desiredSize)
     }
     
     var desiredSize: CGSize {
-        return self.extensionContext!.hostedViewMaximumAllowedSize
+        let width = self.extensionContext!.hostedViewMaximumAllowedSize.width
+        return CGSize(width: width, height: 80)
     }
     
 }

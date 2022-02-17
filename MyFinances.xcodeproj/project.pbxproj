@@ -57,6 +57,9 @@
 		DEF57A8427BC27660089FD31 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC39127B444A40075959B /* Transaction.swift */; };
 		DEF57A8527BC27920089FD31 /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC39727B44CB20075959B /* TransactionType.swift */; };
 		DEF57A8627BC2EBF0089FD31 /* CustomIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A6F27BC1D340089FD31 /* CustomIntents.intentdefinition */; };
+		DEF57A8727BEC46A0089FD31 /* CustomIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A6F27BC1D340089FD31 /* CustomIntents.intentdefinition */; };
+		DEF57A8827BEC7080089FD31 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC3AC27B8FB260075959B /* Date+Formatter.swift */; };
+		DEF57A8927BEC7D00089FD31 /* Double+NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE56447927B2F9AC000D6714 /* Double+NumberFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -522,6 +525,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEBAC3C727BAB13F0075959B /* IntentViewController.swift in Sources */,
+				DEF57A8827BEC7080089FD31 /* Date+Formatter.swift in Sources */,
+				DEF57A8927BEC7D00089FD31 /* Double+NumberFormatter.swift in Sources */,
+				DEF57A8727BEC46A0089FD31 /* CustomIntents.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
