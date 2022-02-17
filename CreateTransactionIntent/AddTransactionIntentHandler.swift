@@ -13,17 +13,24 @@ public class AddTransactionIntentHandler: NSObject, AddTransactionIntentHandling
     
     func handle(intent: AddTransactionIntent, completion: @escaping (AddTransactionIntentResponse) -> Void) {
         guard let amount = intent.amount,
-            let dateComponents = intent.date,
-            let categoryName = intent.category,
-            let accountName = intent.account else {
-                Logger().debug("INTENT DEBUG: FAILED TO HANDLE")
-                completion(AddTransactionIntentResponse(code: .failure, userActivity: nil))
-                return
-            }
+              let dateComponents = intent.date,
+              let categoryName = intent.category,
+              let accountName = intent.account else {
+                  Logger().debug("INTENT DEBUG: FAILED TO HANDLE")
+                  completion(AddTransactionIntentResponse(code: .failure, userActivity: nil))
+                  return
+              }
         let transaction = Transaction()
-        transaction.typeId = TransactionType.expense.rawValue
+        switch intent.transactionType {
+        case .expense:
+            transaction.typeId = TransactionType.expense.rawValue
+        case .income:
+            transaction.typeId = TransactionType.income.rawValue
+        default:
+            break
+        }
         transaction.date = Calendar.current.date(from: dateComponents) ?? Date()
-        transaction.amount = -(Double(truncating: amount))
+        transaction.amount = Double(truncating: amount)
         let transactionManager = TransactionManager()
         guard transactionManager.updateCategory(withName: categoryName, with: transaction),
               transactionManager.updateAccount(withName: accountName, with: transaction) else {
@@ -31,7 +38,22 @@ public class AddTransactionIntentHandler: NSObject, AddTransactionIntentHandling
                   completion(AddTransactionIntentResponse(code: .failure, userActivity: nil))
                   return
               }
-        completion(AddTransactionIntentResponse(code: .success, userActivity: nil))
+        switch intent.transactionType {
+        case .expense:
+            completion(AddTransactionIntentResponse(code: .success_expense, userActivity: nil))
+        case .income:
+            completion(AddTransactionIntentResponse(code: .success_income, userActivity: nil))
+        default:
+            completion(AddTransactionIntentResponse(code: .success, userActivity: nil))
+        }
+    }
+    
+    func resolveTransactionType(for intent: AddTransactionIntent, with completion: @escaping (IntentTransactionTypeResolutionResult) -> Void) {
+        if intent.transactionType == .unknown {
+            completion(IntentTransactionTypeResolutionResult.needsValue())
+        } else {
+            completion(IntentTransactionTypeResolutionResult.success(with: intent.transactionType))
+        }
     }
     
     func resolveAmount(for intent: AddTransactionIntent, with completion: @escaping (AddTransactionAmountResolutionResult) -> Void) {

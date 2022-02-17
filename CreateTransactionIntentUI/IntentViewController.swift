@@ -28,11 +28,21 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
             completion(false, Set(), .zero)
             return
         }
-            categoryLabel.text = intent.category
-            accountLabel.text = intent.account
-            dateLabel.text = Calendar.current.date(from: intent.date ?? DateComponents())?.dateString
-            amountLabel.text = Double(truncating: intent.amount ?? 0).currencyString()
-            completion(true, parameters, self.desiredSize)
+        categoryLabel.text = intent.category
+        accountLabel.text = intent.account
+        dateLabel.text = Calendar.current.date(from: intent.date ?? DateComponents())?.dateString
+        let text = Double(truncating: intent.amount ?? 0).currencyString()
+        switch intent.transactionType {
+        case .expense:
+            amountLabel.textColor = .red
+            amountLabel.text = "-\(text)"
+        case .income:
+            amountLabel.textColor = .green
+            amountLabel.text = "+\(text)"
+        default:
+            break
+        }
+        completion(true, parameters, self.desiredSize)
     }
     
     var desiredSize: CGSize {

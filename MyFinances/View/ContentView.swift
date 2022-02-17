@@ -12,6 +12,7 @@ struct ContentView: View {
     
     @State private var selection: Int = 0
     @ObservedResults(AccountGroup.self) var accountGroups
+    @ObservedResults(Category.self) var categories
     
     var body: some View {
         TabView(selection: $selection) {
@@ -49,6 +50,11 @@ struct ContentView: View {
             .tag(1)
         }
         .accentColor(.green)
+        .onAppear {
+            if categories.isEmpty {
+                DefaultCategoryMaker.categories().forEach({$categories.append($0)})
+            }
+        }
     }
     
 }
