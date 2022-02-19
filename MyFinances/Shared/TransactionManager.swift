@@ -25,8 +25,7 @@ final class TransactionManager {
         return storageService.updateAccount(withName: name, with: transaction)
     }
     
-    @discardableResult
-    func updateCategory(withName name: String, with transaction: Transaction) -> Bool {
-        return storageService.updateCategory(withName: name, with: transaction)
+    func findCategoryWithName(_ name: String) -> Category? {
+        return storageService.findObject(ofType: Category.self, byName: name)
     }
 }

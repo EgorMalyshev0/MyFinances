@@ -11,9 +11,7 @@ import Foundation
 final class Category: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var name: String
-    @Persisted var typeId: UUID = .init()
     @Persisted var transactionTypeId: Int
-    @Persisted var transactions = RealmSwift.List<Transaction>()
 }
 
 final class CategoryGroup: Object, ObjectKeyIdentifiable {

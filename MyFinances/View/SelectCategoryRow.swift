@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SelectCategoryRow: View {
+    @Environment(\.presentationMode) var presentationMode
     
     let category: Category
     @Binding var selectedCategory: Category?
@@ -23,6 +24,7 @@ struct SelectCategoryRow: View {
         .contentShape(Rectangle())
         .onTapGesture {
             self.selectedCategory = self.category
+            presentationMode.wrappedValue.dismiss()
         }
     }
 }

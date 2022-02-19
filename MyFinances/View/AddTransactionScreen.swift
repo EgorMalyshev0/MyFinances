@@ -60,8 +60,9 @@ struct AddTransactionScreen: View {
                 transaction.amount = Double(amount) ?? 0
                 transaction.typeId = selectedTransactionTypeId
                 transaction.date = selectedDate
+                transaction.categoryObjectId = selectedCategory?._id
+                transaction.categoryName = selectedCategory?.name
                 var accountName: String?
-                var categoryName: String?
                 if let thawed = transactionsViewModel.accountsGroup.thaw(), let realm = thawed.realm {
                     if let acc = realm.object(ofType: Account.self, forPrimaryKey: selectedAccount?._id) {
                         accountName = acc.name
@@ -70,15 +71,7 @@ struct AddTransactionScreen: View {
                         })
                     }
                 }
-                if let thawed = categories.thaw(), let realm = thawed.realm, let cat = realm.object(ofType: Category.self, forPrimaryKey: selectedCategory?._id) {
-                    categoryName = cat.name
-                    try! realm.write({
-                        cat.transactions.append(transaction)
-                    })
-                }
-                if selectedTransactionTypeId == TransactionType.expense.rawValue {
-                    makeDonation(transaction: transaction, accountName: accountName ?? "", categoryName: categoryName ?? "")
-                }
+                makeDonation(transaction: transaction, accountName: accountName ?? "", categoryName: selectedCategory?.name ?? "")
                 presentationMode.wrappedValue.dismiss()
             }
             .disabled(amount.isEmpty || selectedCategory == nil || selectedAccount == nil)
@@ -90,6 +83,14 @@ struct AddTransactionScreen: View {
     
     func makeDonation(transaction: Transaction, accountName: String, categoryName: String) {
         let intent = AddTransactionIntent()
+        switch TransactionType(rawValue: transaction.typeId) {
+        case .expense:
+            intent.transactionType = .expense
+        case .income:
+            intent.transactionType = .income
+        default:
+            break
+        }
         intent.amount = NSNumber(value: transaction.amount)
         intent.date = Calendar.current.dateComponents([.year, .month, .day], from: transaction.date)
         intent.account = accountName

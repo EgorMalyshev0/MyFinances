@@ -32,7 +32,7 @@ struct TransactionRow: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(transaction.category.first?.name ?? "Без категории")
+                Text(transaction.categoryName ?? "Без категории")
                     .foregroundColor(.primary)
                     .font(.body)
                 Text(transaction.account.first?.name ?? "")

@@ -32,8 +32,11 @@ public class AddTransactionIntentHandler: NSObject, AddTransactionIntentHandling
         transaction.date = Calendar.current.date(from: dateComponents) ?? Date()
         transaction.amount = Double(truncating: amount)
         let transactionManager = TransactionManager()
-        guard transactionManager.updateCategory(withName: categoryName, with: transaction),
-              transactionManager.updateAccount(withName: accountName, with: transaction) else {
+        if let category = transactionManager.findCategoryWithName(categoryName) {
+            transaction.categoryObjectId = category._id
+            transaction.categoryName = category.name
+        }
+        guard transactionManager.updateAccount(withName: accountName, with: transaction) else {
                   Logger().debug("INTENT DEBUG: FAILED TO HANDLE WITH TRANSACTION ADDING")
                   completion(AddTransactionIntentResponse(code: .failure, userActivity: nil))
                   return

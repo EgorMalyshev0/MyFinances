@@ -37,16 +37,4 @@ final class StorageService {
         }
     }
     
-    func updateCategory(withName name: String, with transaction: Transaction) -> Bool {
-        guard let category = findObject(ofType: Category.self, byName: name) else { return false }
-        do {
-            try realm.write {
-                category.transactions.append(transaction)
-            }
-            return true
-        } catch {
-            return false
-        }
-    }
-    
 }

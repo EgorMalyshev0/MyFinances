@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SelectAccountTypeCell: View {
-    
+    @Environment(\.presentationMode) var presentationMode
     let type: AccountType
     @Binding var selectedType: AccountType
     
@@ -23,6 +23,7 @@ struct SelectAccountTypeCell: View {
         .contentShape(Rectangle())
         .onTapGesture {
             self.selectedType = self.type
+            presentationMode.wrappedValue.dismiss()
         }
     }
 }
