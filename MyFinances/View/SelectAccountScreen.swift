@@ -10,12 +10,12 @@ import RealmSwift
 
 struct SelectAccountScreen: View {
     
-    @ObservedRealmObject var accountGroup: AccountGroup
-    
+    @ObservedResults(Account.self) var accounts
+
     @Binding var selectedAccount: Account?
 
     var body: some View {
-        List(accountGroup.accounts) {
+        List(accounts) {
             SelectAccountRow(account: $0, selectedAccount: $selectedAccount)
         }
     }

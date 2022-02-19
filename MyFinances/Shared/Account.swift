@@ -27,8 +27,3 @@ final class Account: Object, ObjectKeyIdentifiable {
         return balance
     }
 }
-
-final class AccountGroup: Object, ObjectKeyIdentifiable {
-    @Persisted(primaryKey: true) var _id: ObjectId
-    @Persisted var accounts = RealmSwift.List<Account>()
-}

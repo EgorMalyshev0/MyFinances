@@ -17,7 +17,11 @@ extension Date {
         } else {
             let formatter = DateFormatter()
             formatter.locale = Locale(identifier: "ru_RU")
-            formatter.dateFormat = "d MMMM yyyy"
+            if calendar.isDate(self, equalTo: Date(), toGranularity: .year) {
+                formatter.dateFormat = "d MMMM, EE"
+            } else {
+                formatter.dateFormat = "d MMMM yyyy, EE"
+            }
             return formatter.string(from: self)
         }
     }

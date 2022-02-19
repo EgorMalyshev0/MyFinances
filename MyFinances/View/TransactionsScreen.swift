@@ -10,7 +10,6 @@ import RealmSwift
 
 struct TransactionsScreen: View {
     
-    @ObservedObject var transactionsViewModel: TransactionsViewModel
     @State private var addTransactionIsPresented: Bool = false
     @ObservedResults(Transaction.self) var transactions
 
@@ -31,7 +30,6 @@ struct TransactionsScreen: View {
         .sheet(isPresented: $addTransactionIsPresented) {
             NavigationView{
                 AddTransactionScreen()
-                    .environmentObject(transactionsViewModel)
             }
         }
         .navigationTitle("Операции")

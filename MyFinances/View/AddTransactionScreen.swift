@@ -12,7 +12,6 @@ import Intents
 struct AddTransactionScreen: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var transactionsViewModel: TransactionsViewModel
     @State var amount: String = ""
     @State var selectedTransactionTypeId: Int = 0
     @State var selectedCategory: Category?
@@ -44,7 +43,7 @@ struct AddTransactionScreen: View {
                         .foregroundColor(selectedCategory == nil ? .secondary : .primary)
                 }
                 NavigationLink {
-                    SelectAccountScreen(accountGroup: transactionsViewModel.accountsGroup, selectedAccount: $selectedAccount)
+                    SelectAccountScreen(selectedAccount: $selectedAccount)
                 } label: {
                     Text(selectedAccount?.name ?? "Выберите счет")
                         .foregroundColor(selectedAccount == nil ? .secondary : .primary)
@@ -63,7 +62,7 @@ struct AddTransactionScreen: View {
                 transaction.categoryObjectId = selectedCategory?._id
                 transaction.categoryName = selectedCategory?.name
                 var accountName: String?
-                if let thawed = transactionsViewModel.accountsGroup.thaw(), let realm = thawed.realm {
+                if let thawed = categories.thaw(), let realm = thawed.realm {
                     if let acc = realm.object(ofType: Account.self, forPrimaryKey: selectedAccount?._id) {
                         accountName = acc.name
                         try! realm.write({

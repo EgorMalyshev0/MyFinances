@@ -6,14 +6,15 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct AddAccountScreen: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var accountsViewModel: AccountsViewModel
     @State var accountName: String = ""
     @State var balance: String = ""
     @State var accountType: AccountType = .cash
+    @ObservedResults(Account.self) var accounts
 
     var body: some View {
         List {
@@ -31,17 +32,13 @@ struct AddAccountScreen: View {
                 account.name = accountName
                 account.startBalance = Double(balance) ?? 0
                 account.type = accountType.rawValue
-                $accountsViewModel.accountGroup.accounts.append(account)
+                $accounts.append(account)
                 presentationMode.wrappedValue.dismiss()
             }
             .disabled(accountName.isEmpty)
         }
         .accentColor(.green)
-    }
-}
-
-struct AddAccountScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        AddAccountScreen()
+        .navigationTitle("Новый счет")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
