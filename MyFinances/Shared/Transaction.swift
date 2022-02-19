@@ -17,8 +17,3 @@ final class Transaction: Object, ObjectKeyIdentifiable {
     @Persisted var amount: Double
     @Persisted var date: Date
 }
-
-final class TransactionGroup: Object, ObjectKeyIdentifiable {
-    @Persisted(primaryKey: true) var _id: ObjectId
-    @Persisted var transactions = RealmSwift.List<Transaction>()
-}

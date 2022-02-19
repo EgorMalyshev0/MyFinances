@@ -25,4 +25,11 @@ extension Date {
             return formatter.string(from: self)
         }
     }
+    
+    func isEqualTo(_ date: Date) -> Bool {
+        let calendar = Calendar.current
+        return  calendar.isDate(self, equalTo: date, toGranularity: .day) &&
+                calendar.isDate(self, equalTo: date, toGranularity: .month) &&
+                calendar.isDate(self, equalTo: date, toGranularity: .year)
+    }
 }

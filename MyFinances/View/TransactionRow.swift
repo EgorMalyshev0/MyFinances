@@ -31,21 +31,19 @@ struct TransactionRow: View {
     
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 7) {
                 Text(transaction.categoryName ?? "Без категории")
                     .foregroundColor(.primary)
                     .font(.body)
                 Text(transaction.account.first?.name ?? "")
                     .foregroundColor(.secondary)
                     .font(.caption)
-                Text(transaction.date.dateString)
-                    .foregroundColor(.secondary)
-                    .font(.caption2)
             }
             Spacer()
             Text(amountText)
                 .multilineTextAlignment(.trailing)
                 .foregroundColor(color)
         }
+        .padding(.vertical, 3)
     }
 }
