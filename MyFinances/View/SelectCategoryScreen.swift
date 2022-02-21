@@ -11,12 +11,12 @@ import RealmSwift
 struct SelectCategoryScreen: View {
     
     @ObservedResults(Category.self) var categories
-    @State var transactionTypeId: Int
+    @State var transactionType: TransactionType
     
     @Binding var selectedCategory: Category?
     
     var body: some View {
-        List(categories.filter({$0.transactionTypeId == transactionTypeId}), id: \.self) { category in
+        List(categories.filter({$0.transactionType == transactionType}), id: \.self) { category in
             SelectCategoryRow(category: category, selectedCategory: $selectedCategory)
         }
         .accentColor(.green)

@@ -35,7 +35,7 @@ struct AddTransactionScreen: View {
             List {
                 BalanceRow(balance: $amount, title: "Сумма")
                 NavigationLink {
-                    SelectCategoryScreen(transactionTypeId: selectedTransactionType.rawValue, selectedCategory: $selectedCategory)
+                    SelectCategoryScreen(transactionType: selectedTransactionType, selectedCategory: $selectedCategory)
                 } label: {
                     Text(selectedCategory?.name ?? "Выберите категорию")
                         .foregroundColor(selectedCategory == nil ? .secondary : .primary)

@@ -11,7 +11,7 @@ import Foundation
 final class Category: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var name: String
-    @Persisted var transactionTypeId: Int
+    @Persisted var transactionType: TransactionType
 }
 
 final class CategoryGroup: Object, ObjectKeyIdentifiable {
@@ -29,26 +29,24 @@ final class DefaultCategoryMaker {
     }
     
     static func expenseCategories() -> [Category] {
-        let transactionTypeId = TransactionType.expense.rawValue
         let names = ["Автомобиль", "Дом", "Здоровье", "Путешествия", "Развлечения", "Рестораны"]
         var categories: [Category] = .init()
         names.forEach {
             let category = Category()
             category.name = $0
-            category.transactionTypeId = transactionTypeId
+            category.transactionType = TransactionType.expense
             categories.append(category)
         }
         return categories
     }
     
     static func incomeCategories() -> [Category] {
-        let transactionTypeId = TransactionType.income.rawValue
         let names = ["Другое", "Зарплата", "Подарки"]
         var categories: [Category] = .init()
         names.forEach {
             let category = Category()
             category.name = $0
-            category.transactionTypeId = transactionTypeId
+            category.transactionType = TransactionType.income
             categories.append(category)
         }
         return categories

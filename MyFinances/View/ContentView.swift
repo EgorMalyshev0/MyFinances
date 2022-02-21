@@ -31,9 +31,7 @@ struct ContentView: View {
                 Text("Операции")
             }
             .tag(1)
-            NavigationView {
-                MenuScreen()
-            }
+            AddSiriShortcutScreen()
             .tabItem {
                 Image(systemName: "line.3.horizontal")
                 Text("Еще")
