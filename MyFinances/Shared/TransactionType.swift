@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import RealmSwift
 
-enum TransactionType: Int, CaseIterable {
+enum TransactionType: Int, CaseIterable, PersistableEnum {
     case expense = 0
     case income
     

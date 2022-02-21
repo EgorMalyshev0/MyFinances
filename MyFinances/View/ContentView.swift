@@ -31,6 +31,14 @@ struct ContentView: View {
                 Text("Операции")
             }
             .tag(1)
+            NavigationView {
+                MenuScreen()
+            }
+            .tabItem {
+                Image(systemName: "line.3.horizontal")
+                Text("Еще")
+            }
+            .tag(2)
         }
         .accentColor(.green)
         .onAppear {

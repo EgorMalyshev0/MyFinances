@@ -12,18 +12,18 @@ struct TransactionRow: View {
     var transaction: Transaction
     
     var amountText: String {
-        if transaction.typeId == TransactionType.expense.rawValue {
+        if transaction.type == .expense {
             return "-\(transaction.amount.currencyString())"
-        } else if transaction.typeId == TransactionType.income.rawValue {
+        } else if transaction.type == .income {
             return "+\(transaction.amount.currencyString())"
         }
         return ""
     }
     
     var color: Color {
-        if transaction.typeId == TransactionType.expense.rawValue {
+        if transaction.type == .expense {
             return .red
-        } else if transaction.typeId == TransactionType.income.rawValue {
+        } else if transaction.type == .income {
             return .green
         }
         return .primary
@@ -32,7 +32,7 @@ struct TransactionRow: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 7) {
-                Text(transaction.categoryName ?? "Без категории")
+                Text(transaction.category?.name ?? "Без категории")
                     .foregroundColor(.primary)
                     .font(.body)
                 Text(transaction.account.first?.name ?? "")

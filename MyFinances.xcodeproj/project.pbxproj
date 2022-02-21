@@ -58,6 +58,11 @@
 		DEF57A8727BEC46A0089FD31 /* CustomIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A6F27BC1D340089FD31 /* CustomIntents.intentdefinition */; };
 		DEF57A8827BEC7080089FD31 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBAC3AC27B8FB260075959B /* Date+Formatter.swift */; };
 		DEF57A8927BEC7D00089FD31 /* Double+NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE56447927B2F9AC000D6714 /* Double+NumberFormatter.swift */; };
+		DEF57A8B27C2599D0089FD31 /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A8A27C2599D0089FD31 /* MenuScreen.swift */; };
+		DEF57A8D27C293E90089FD31 /* AddSiriShortcutScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A8C27C293E90089FD31 /* AddSiriShortcutScreen.swift */; };
+		DEF57A8F27C295D50089FD31 /* ShortcutDonateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A8E27C295D50089FD31 /* ShortcutDonateButton.swift */; };
+		DEF57A9227C296150089FD31 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A9127C296150089FD31 /* DonateViewController.swift */; };
+		DEF57A9327C29A1A0089FD31 /* AccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE56446227B1A212000D6714 /* AccountType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +151,10 @@
 		DEF57A7327BC1F910089FD31 /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		DEF57A7427BC1F910089FD31 /* TransactionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		DEF57A7527BC1F910089FD31 /* AddTransactionIntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionIntentHandler.swift; sourceTree = "<group>"; };
+		DEF57A8A27C2599D0089FD31 /* MenuScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
+		DEF57A8C27C293E90089FD31 /* AddSiriShortcutScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSiriShortcutScreen.swift; sourceTree = "<group>"; };
+		DEF57A8E27C295D50089FD31 /* ShortcutDonateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutDonateButton.swift; sourceTree = "<group>"; };
+		DEF57A9127C296150089FD31 /* DonateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,9 +215,9 @@
 				DEBAC3B127BAB0F30075959B /* MyFinances.entitlements */,
 				DEBAC3B027B942930075959B /* Info.plist */,
 				DE56444427AEC4C1000D6714 /* MyFinancesApp.swift */,
+				DEF57A9027C295DC0089FD31 /* ShortcutDonateButton */,
 				DEF57A7127BC1F910089FD31 /* Shared */,
 				DE56447327B2D63F000D6714 /* View */,
-				DE56446127B1A0CE000D6714 /* Models */,
 				DE56447B27B2F9C0000D6714 /* Extensions */,
 				DE56444827AEC4C3000D6714 /* Assets.xcassets */,
 				DE56444A27AEC4C3000D6714 /* Preview Content */,
@@ -224,20 +233,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		DE56446127B1A0CE000D6714 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				DE56446227B1A212000D6714 /* AccountType.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		DE56447327B2D63F000D6714 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				DE56444627AEC4C1000D6714 /* ContentView.swift */,
 				DE56445227B007D9000D6714 /* TransactionsScreen.swift */,
 				DE56445427B0087F000D6714 /* AccountsScreen.swift */,
+				DEF57A8A27C2599D0089FD31 /* MenuScreen.swift */,
+				DEF57A8C27C293E90089FD31 /* AddSiriShortcutScreen.swift */,
 				DE56447C27B2FE3F000D6714 /* AddTransactionScreen */,
 				DE56447427B2D662000D6714 /* AddAccountScreen */,
 			);
@@ -317,11 +320,21 @@
 				DEF57A7327BC1F910089FD31 /* StorageService.swift */,
 				DEF57A7427BC1F910089FD31 /* TransactionManager.swift */,
 				DE56445F27B1A0C7000D6714 /* Account.swift */,
+				DE56446227B1A212000D6714 /* AccountType.swift */,
 				DEBAC39E27B56E7B0075959B /* Category.swift */,
 				DEBAC39127B444A40075959B /* Transaction.swift */,
 				DEBAC39727B44CB20075959B /* TransactionType.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		DEF57A9027C295DC0089FD31 /* ShortcutDonateButton */ = {
+			isa = PBXGroup;
+			children = (
+				DEF57A8E27C295D50089FD31 /* ShortcutDonateButton.swift */,
+				DEF57A9127C296150089FD31 /* DonateViewController.swift */,
+			);
+			path = ShortcutDonateButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -475,16 +488,20 @@
 				DE56445E27B19F63000D6714 /* AddAccountScreen.swift in Sources */,
 				DEF57A7727BC1F910089FD31 /* StorageService.swift in Sources */,
 				DE56446727B1A744000D6714 /* BalanceRow.swift in Sources */,
+				DEF57A8B27C2599D0089FD31 /* MenuScreen.swift in Sources */,
 				DE56444727AEC4C1000D6714 /* ContentView.swift in Sources */,
 				DE56446327B1A212000D6714 /* AccountType.swift in Sources */,
 				DEF57A8627BC2EBF0089FD31 /* CustomIntents.intentdefinition in Sources */,
 				DE56445327B007D9000D6714 /* TransactionsScreen.swift in Sources */,
+				DEF57A8D27C293E90089FD31 /* AddSiriShortcutScreen.swift in Sources */,
 				DE56444527AEC4C1000D6714 /* MyFinancesApp.swift in Sources */,
 				DE56445527B0087F000D6714 /* AccountsScreen.swift in Sources */,
 				DEF57A7827BC1F910089FD31 /* TransactionManager.swift in Sources */,
 				DEBAC3A927B7C5BC0075959B /* SelectAccountScreen.swift in Sources */,
+				DEF57A9227C296150089FD31 /* DonateViewController.swift in Sources */,
 				DEBAC39827B44CB20075959B /* TransactionType.swift in Sources */,
 				DEBAC3AB27B7C8BB0075959B /* SelectAccountRow.swift in Sources */,
+				DEF57A8F27C295D50089FD31 /* ShortcutDonateButton.swift in Sources */,
 				DE56446927B1A8C0000D6714 /* SelectAccountTypeScreen.swift in Sources */,
 				DE56447827B2F965000D6714 /* AccountCell.swift in Sources */,
 				DE56447A27B2F9AC000D6714 /* Double+NumberFormatter.swift in Sources */,
@@ -509,6 +526,7 @@
 				DEF57A8127BC209E0089FD31 /* Constants.swift in Sources */,
 				DEF57A8227BC21A00089FD31 /* Category.swift in Sources */,
 				DEF57A8427BC27660089FD31 /* Transaction.swift in Sources */,
+				DEF57A9327C29A1A0089FD31 /* AccountType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

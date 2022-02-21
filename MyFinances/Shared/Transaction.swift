@@ -10,10 +10,9 @@ import RealmSwift
 
 final class Transaction: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var _id: ObjectId
-    @Persisted var typeId: Int
+    @Persisted var type: TransactionType
     @Persisted(originProperty: "transactions") var account: LinkingObjects<Account>
-    @Persisted var categoryObjectId: ObjectId?
-    @Persisted var categoryName: String?
+    @Persisted var category: Category?
     @Persisted var amount: Double
     @Persisted var date: Date
 }

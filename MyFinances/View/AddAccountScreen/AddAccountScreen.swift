@@ -31,7 +31,7 @@ struct AddAccountScreen: View {
                 let account = Account()
                 account.name = accountName
                 account.startBalance = Double(balance) ?? 0
-                account.type = accountType.rawValue
+                account.type = accountType
                 $accounts.append(account)
                 presentationMode.wrappedValue.dismiss()
             }

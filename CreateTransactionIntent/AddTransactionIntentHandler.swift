@@ -23,9 +23,9 @@ public class AddTransactionIntentHandler: NSObject, AddTransactionIntentHandling
         let transaction = Transaction()
         switch intent.transactionType {
         case .expense:
-            transaction.typeId = TransactionType.expense.rawValue
+            transaction.type = TransactionType.expense
         case .income:
-            transaction.typeId = TransactionType.income.rawValue
+            transaction.type = TransactionType.income
         default:
             break
         }
@@ -33,8 +33,7 @@ public class AddTransactionIntentHandler: NSObject, AddTransactionIntentHandling
         transaction.amount = Double(truncating: amount)
         let transactionManager = TransactionManager()
         if let category = transactionManager.findCategoryWithName(categoryName) {
-            transaction.categoryObjectId = category._id
-            transaction.categoryName = category.name
+            transaction.category = category
         }
         guard transactionManager.updateAccount(withName: accountName, with: transaction) else {
                   Logger().debug("INTENT DEBUG: FAILED TO HANDLE WITH TRANSACTION ADDING")
@@ -92,7 +91,7 @@ public class AddTransactionIntentHandler: NSObject, AddTransactionIntentHandling
             completion(AddTransactionDateResolutionResult.unsupported())
             return
         }
-        if date > Date()  {
+        if !Calendar.current.isDateInToday(date) && date > Date()  {
             completion(AddTransactionDateResolutionResult.unsupported(forReason: .dateIsLaterThanToday))
         } else {
             completion(AddTransactionDateResolutionResult.success(with: dateComponents))

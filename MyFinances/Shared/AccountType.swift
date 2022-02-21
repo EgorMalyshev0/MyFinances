@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-enum AccountType: String, CaseIterable {
+enum AccountType: String, CaseIterable, PersistableEnum {
     case cash
     case creditCard
     case bankAccount
