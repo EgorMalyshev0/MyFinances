@@ -10,7 +10,11 @@ import RealmSwift
 
 struct TransactionsScreen: View {
     
+    @ObservedObject var viewModel: TransactionsScreenViewModel = .init()
+    
     @State private var addTransactionIsPresented: Bool = false
+    @State private var showingAlert: Bool = false
+
     @ObservedResults(Transaction.self, sortDescriptor: SortDescriptor(keyPath: "date", ascending: false)) var transactions
     
     var dates: [Date] {
@@ -37,7 +41,11 @@ struct TransactionsScreen: View {
         .listStyle(InsetListStyle())
         .toolbar {
             Button {
-                addTransactionIsPresented = true
+                if viewModel.accountsExist() {
+                    addTransactionIsPresented = true
+                } else {
+                    showingAlert = true
+                }
             } label: {
                 Image(systemName: "plus")
             }
@@ -47,6 +55,12 @@ struct TransactionsScreen: View {
                 AddTransactionScreen()
             }
         }
+        .alert("У Вас нет счетов", isPresented: $showingAlert, actions: {
+            Button("OK", role: .cancel) {}
+                .accentColor(.green)
+        }, message: {
+            Text("Для добавления операции нужно добавить хотя бы один счет")
+        })
         .navigationTitle("Операции")
         .navigationBarTitleDisplayMode(.inline)
     }

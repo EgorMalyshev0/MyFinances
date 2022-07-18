@@ -40,6 +40,7 @@ struct ContentView: View {
         }
         .accentColor(.green)
         .onAppear {
+            UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = .green
             if categories.isEmpty {
                 DefaultCategoryMaker.categories().forEach({$categories.append($0)})
             }
