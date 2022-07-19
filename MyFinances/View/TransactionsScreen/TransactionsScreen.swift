@@ -12,7 +12,6 @@ struct TransactionsScreen: View {
     
     @ObservedObject var viewModel: TransactionsScreenViewModel = .init()
     
-    @State private var addTransactionIsPresented: Bool = false
     @State private var showingAlert: Bool = false
 
     @ObservedResults(Transaction.self, sortDescriptor: SortDescriptor(keyPath: "date", ascending: false)) var transactions
@@ -31,8 +30,12 @@ struct TransactionsScreen: View {
         List {
             ForEach(dates, id: \.self) { date in
                 Section(header: Text(date.dateString)) {
-                    ForEach(transactions.filter({$0.date.isEqualTo(date)})) {
-                        TransactionRow(transaction: $0)
+                    ForEach(transactions.filter({$0.date.isEqualTo(date)})) { transaction in
+                        NavigationLink  {
+                            AddTransactionScreen(viewModel: AddTransactionScreenViewModel(transaction: transaction))
+                        } label: {
+                            TransactionRow(transaction: transaction)
+                        }
                     }
                     .listRowSeparator(.hidden)
                 }
@@ -40,20 +43,20 @@ struct TransactionsScreen: View {
         }
         .listStyle(InsetListStyle())
         .toolbar {
-            Button {
-                if viewModel.accountsExist() {
-                    addTransactionIsPresented = true
-                } else {
-                    showingAlert = true
+            if viewModel.accountsExist() {
+                NavigationLink {
+                    AddTransactionScreen(viewModel: AddTransactionScreenViewModel())
+                } label: {
+                    Image(systemName: "plus")
                 }
-            } label: {
-                Image(systemName: "plus")
+            } else {
+                Button {
+                    showingAlert = true
+                } label: {
+                    Image(systemName: "plus")
+                }
             }
-        }
-        .sheet(isPresented: $addTransactionIsPresented) {
-            NavigationView{
-                AddTransactionScreen()
-            }
+            
         }
         .alert("У Вас нет счетов", isPresented: $showingAlert, actions: {
             Button("OK", role: .cancel) {}

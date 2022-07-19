@@ -41,6 +41,7 @@
 		DEBAC3CA27BAB13F0075959B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEBAC3C827BAB13F0075959B /* MainInterface.storyboard */; };
 		DEBAC3CE27BAB13F0075959B /* CreateTransactionIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DEBAC3C227BAB13F0075959B /* CreateTransactionIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DEBAC3D127BAB13F0075959B /* CreateTransactionIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DEBAC3B627BAB13F0075959B /* CreateTransactionIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DEBBF5FA2886AE9E002D9986 /* AddTransactionScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBBF5F92886AE9E002D9986 /* AddTransactionScreenViewModel.swift */; };
 		DEF57A7027BC1D370089FD31 /* CustomIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A6F27BC1D340089FD31 /* CustomIntents.intentdefinition */; settings = {ATTRIBUTES = (project_codegen, ); }; };
 		DEF57A7627BC1F910089FD31 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A7227BC1F910089FD31 /* Constants.swift */; };
 		DEF57A7727BC1F910089FD31 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A7327BC1F910089FD31 /* StorageService.swift */; };
@@ -147,6 +148,7 @@
 		DEBAC3CB27BAB13F0075959B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DEBAC3EF27BADB8C0075959B /* CreateTransactionIntentUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CreateTransactionIntentUI.entitlements; sourceTree = "<group>"; };
 		DEBAC3F027BADBA70075959B /* CreateTransactionIntent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CreateTransactionIntent.entitlements; sourceTree = "<group>"; };
+		DEBBF5F92886AE9E002D9986 /* AddTransactionScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionScreenViewModel.swift; sourceTree = "<group>"; };
 		DEF57A6F27BC1D340089FD31 /* CustomIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = CustomIntents.intentdefinition; sourceTree = "<group>"; };
 		DEF57A7227BC1F910089FD31 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DEF57A7327BC1F910089FD31 /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				DE56445B27B19CFE000D6714 /* AddTransactionScreen.swift */,
+				DEBBF5F92886AE9E002D9986 /* AddTransactionScreenViewModel.swift */,
 				DEBAC39527B447200075959B /* TransactionRow.swift */,
 				DEBAC3A027B593F70075959B /* SelectCategoryScreen.swift */,
 				DEBAC3A827B7C5BC0075959B /* SelectAccountScreen.swift */,
@@ -513,6 +516,7 @@
 				DE56446927B1A8C0000D6714 /* SelectAccountTypeScreen.swift in Sources */,
 				DE56447827B2F965000D6714 /* AccountCell.swift in Sources */,
 				DE56447A27B2F9AC000D6714 /* Double+NumberFormatter.swift in Sources */,
+				DEBBF5FA2886AE9E002D9986 /* AddTransactionScreenViewModel.swift in Sources */,
 				DE56446027B1A0C7000D6714 /* Account.swift in Sources */,
 				DEBAC3A327B597E30075959B /* SelectCategoryRow.swift in Sources */,
 				DEBAC39227B444A40075959B /* Transaction.swift in Sources */,

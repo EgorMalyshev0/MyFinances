@@ -12,16 +12,14 @@ import Intents
 struct AddTransactionScreen: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @State var amount: String = ""
-    @State var selectedTransactionType: TransactionType = .expense
-    @State var selectedCategory: Category?
-    @State var selectedAccount: Account?
-    @State var selectedDate: Date = Date()
+    
+    @StateObject var viewModel: AddTransactionScreenViewModel
+    
     @ObservedResults(Category.self) var categories
 
     var body: some View {
         VStack {
-            Picker("Выберите тип операции", selection: $selectedTransactionType) {
+            Picker("Выберите тип операции", selection: $viewModel.selectedTransactionType) {
                 ForEach(TransactionType.allCases, id: \.self) {
                     Text($0.textDescription)
                         .tag($0)
@@ -29,74 +27,39 @@ struct AddTransactionScreen: View {
             }
             .padding(.horizontal)
             .pickerStyle(SegmentedPickerStyle())
-            .onChange(of: selectedTransactionType) { _ in
-                selectedCategory = nil
+            .onChange(of: viewModel.selectedTransactionType) { _ in
+                viewModel.selectedCategory = nil
             }
             List {
-                BalanceRow(balance: $amount, title: "Сумма")
+                BalanceRow(balance: $viewModel.amount, title: "Сумма")
                 NavigationLink {
-                    SelectCategoryScreen(transactionType: selectedTransactionType, selectedCategory: $selectedCategory)
+                    SelectCategoryScreen(transactionType: viewModel.selectedTransactionType, selectedCategory: $viewModel.selectedCategory)
                 } label: {
-                    Text(selectedCategory?.name ?? "Выберите категорию")
-                        .foregroundColor(selectedCategory == nil ? .secondary : .primary)
+                    Text(viewModel.selectedCategory?.name ?? "Выберите категорию")
+                        .foregroundColor(viewModel.selectedCategory == nil ? .secondary : .primary)
                 }
                 NavigationLink {
-                    SelectAccountScreen(selectedAccount: $selectedAccount)
+                    SelectAccountScreen(selectedAccount: $viewModel.selectedAccount)
                 } label: {
-                    Text(selectedAccount?.name ?? "Выберите счет")
-                        .foregroundColor(selectedAccount == nil ? .secondary : .primary)
+                    Text(viewModel.selectedAccount?.name ?? "Выберите счет")
+                        .foregroundColor(viewModel.selectedAccount == nil ? .secondary : .primary)
                 }
-                DatePicker("Дата", selection: $selectedDate, in: ...Date(), displayedComponents: .date)
+                DatePicker("Дата", selection: $viewModel.selectedDate, in: ...Date(), displayedComponents: .date)
                     .environment(\.locale, Locale(identifier: "ru_RU"))
                     .labelsHidden()
             }
         }
         .toolbar {
             Button("Сохранить") {
-                let transaction = Transaction()
-                transaction.amount = Double(amount) ?? 0
-                transaction.type = selectedTransactionType
-                transaction.date = selectedDate
-                if let thawed = categories.thaw(), let realm = thawed.realm {
-                    if let account = realm.object(ofType: Account.self, forPrimaryKey: selectedAccount?._id),
-                       let category = realm.object(ofType: Category.self, forPrimaryKey: selectedCategory?._id){
-                        try! realm.write({
-                            account.transactions.append(transaction)
-                            transaction.category = category
-                        })
-                    }
-                }
-                makeDonation(transaction: transaction, accountName: selectedAccount?.name ?? "", categoryName: selectedCategory?.name ?? "")
+                viewModel.saveTransaction()
+                viewModel.makeDonation()
                 presentationMode.wrappedValue.dismiss()
             }
-            .disabled(amount.isEmpty || selectedCategory == nil || selectedAccount == nil)
+            .disabled(viewModel.amount.isEmpty || viewModel.selectedCategory == nil || viewModel.selectedAccount == nil)
         }
         .accentColor(.green)
-        .navigationTitle("Новая операция")
+//        .navigationTitle("Новая операция")
         .navigationBarTitleDisplayMode(.inline)
-    }
-    
-    func makeDonation(transaction: Transaction, accountName: String, categoryName: String) {
-        let intent = AddTransactionIntent()
-        switch transaction.type {
-        case .expense:
-            intent.transactionType = .expense
-        case .income:
-            intent.transactionType = .income
-        }
-        intent.amount = NSNumber(value: transaction.amount)
-        intent.date = Calendar.current.dateComponents([.year, .month, .day], from: transaction.date)
-        intent.account = accountName
-        intent.category = categoryName
-        let interaction = INInteraction(intent: intent, response: nil)
-        
-        interaction.donate { error in
-            if let error = error {
-                print("Donation failed due to error: \(error.localizedDescription)")
-            } else {
-                print("Successfully donated interaction")
-            }
-        }
     }
     
 }
