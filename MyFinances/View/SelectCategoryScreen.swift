@@ -20,6 +20,15 @@ struct SelectCategoryScreen: View {
             SelectCategoryRow(category: category, selectedCategory: $selectedCategory)
         }
         .accentColor(.green)
+        .navigationTitle("Категории")
+        .toolbar {
+            Button {
+                
+            } label: {
+                Image(systemName: "plus")
+            }
+
+        }
     }
         
 }

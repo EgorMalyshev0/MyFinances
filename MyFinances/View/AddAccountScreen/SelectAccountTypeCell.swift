@@ -14,6 +14,8 @@ struct SelectAccountTypeCell: View {
     
     var body: some View {
         HStack {
+            Image(systemName: type.imageName)
+                .frame(width: 35)
             Text(type.textDescription)
             Spacer()
             Image(systemName: "checkmark")

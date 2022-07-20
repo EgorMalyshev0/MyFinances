@@ -15,6 +15,8 @@ struct SelectCategoryRow: View {
     
     var body: some View {
         HStack {
+            Image(systemName: category.iconName)
+                .frame(width: 35)
             Text(category.name)
             Spacer()
             Image(systemName: "checkmark")

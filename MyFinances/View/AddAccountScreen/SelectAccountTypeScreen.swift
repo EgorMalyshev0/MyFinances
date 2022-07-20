@@ -16,5 +16,6 @@ struct SelectAccountTypeScreen: View {
             SelectAccountTypeCell(type: type, selectedType: $selectedType)
         }
         .accentColor(.green)
+        .navigationTitle("Тип счета")
     }
 }

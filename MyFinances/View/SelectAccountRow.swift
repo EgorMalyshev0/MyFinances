@@ -15,6 +15,8 @@ struct SelectAccountRow: View {
     
     var body: some View {
         HStack {
+            Image(systemName: account.type.imageName)
+                .frame(width: 35)
             Text(account.name)
             Spacer()
             Image(systemName: "checkmark")

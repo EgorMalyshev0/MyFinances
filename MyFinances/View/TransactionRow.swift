@@ -30,7 +30,9 @@ struct TransactionRow: View {
     }
     
     var body: some View {
-        HStack {
+        HStack(spacing: 10) {
+            Image(systemName: transaction.type == .transfer ? "arrow.turn.left.down" : transaction.category?.iconName ?? "")
+                .frame(width: 35)
             VStack(alignment: .leading, spacing: 7) {
                 if transaction.type == .transfer {
                     Text(transaction.account?.name ?? "")

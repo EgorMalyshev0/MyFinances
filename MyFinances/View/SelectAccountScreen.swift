@@ -18,5 +18,6 @@ struct SelectAccountScreen: View {
         List(accounts) {
             SelectAccountRow(account: $0, selectedAccount: $selectedAccount)
         }
+        .navigationTitle("Счета")
     }
 }
