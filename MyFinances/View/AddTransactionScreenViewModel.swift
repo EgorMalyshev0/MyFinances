@@ -105,8 +105,8 @@ class AddTransactionScreenViewModel: ObservableObject {
             intent.transactionType = .expense
         case .income:
             intent.transactionType = .income
-        default:
-            break
+        case .transfer:
+            intent.transactionType = .transfer
         }
         intent.amount = NSNumber(value: transaction.amount)
         intent.date = Calendar.current.dateComponents([.year, .month, .day], from: transaction.date)

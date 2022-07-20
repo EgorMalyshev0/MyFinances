@@ -14,6 +14,7 @@ struct AddTransactionScreen: View {
     @Environment(\.presentationMode) var presentationMode
     
     @StateObject var viewModel: AddTransactionScreenViewModel
+    @State private var showingDeleteAlert = false
     
     @ObservedResults(Category.self) var categories
 
@@ -69,8 +70,11 @@ struct AddTransactionScreen: View {
         }
         .toolbar {
             HStack {
-                Button("Удалить") {
-                    viewModel.deleteTransaction()
+                Button {
+                    showingDeleteAlert = true
+                } label: {
+                    Image(systemName: "trash")
+                        .tint(.red)
                 }
                 .opacity(viewModel.isEditing ? 1 : 0)
                 Button("Сохранить") {
@@ -81,6 +85,12 @@ struct AddTransactionScreen: View {
             }
             
         }
+        .alert("Вы действительно хотите удалить операцию?", isPresented: $showingDeleteAlert, actions: {
+            Button("Удалить", role: .destructive) {
+                viewModel.deleteTransaction()
+            }
+            Button("Отмена", role: .cancel) {}
+        })
         .accentColor(.green)
         .navigationBarTitleDisplayMode(.inline)
     }

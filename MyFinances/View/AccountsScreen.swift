@@ -27,12 +27,16 @@ struct AccountsScreen: View {
     
     var body: some View {
         List {
-            ForEach(accounts) {
-                AccountCell(account: $0)
-            }
-            .onDelete { indexSet in
-                self.indexSet = indexSet
-                showingAlert = true
+            Section {
+                ForEach(accounts) {
+                    AccountCell(account: $0)
+                }
+                .onDelete { indexSet in
+                    self.indexSet = indexSet
+                    showingAlert = true
+                }
+            } header: {
+                Text("Счета")
             }
         }
         .toolbar {

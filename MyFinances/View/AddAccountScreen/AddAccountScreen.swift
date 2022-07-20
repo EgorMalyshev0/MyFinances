@@ -13,7 +13,7 @@ struct AddAccountScreen: View {
     @Environment(\.presentationMode) var presentationMode
     @State var accountName: String = ""
     @State var balance: String = ""
-    @State var accountType: AccountType = .cash
+    @State var accountType: AccountType = .creditCard
     @ObservedResults(Account.self) var accounts
 
     var body: some View {

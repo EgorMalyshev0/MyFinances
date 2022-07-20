@@ -13,10 +13,12 @@ struct AccountCell: View {
     
     var body: some View {
         HStack {
+            Image(systemName: account.type.imageName)
             Text(account.name)
             Spacer()
             Text(account.balance.currencyString())
                 .multilineTextAlignment(.trailing)
+                .font(.callout)
         }
     }
 }

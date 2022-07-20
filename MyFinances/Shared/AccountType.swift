@@ -23,4 +23,15 @@ enum AccountType: String, CaseIterable, PersistableEnum {
             return "Банковский счет"
         }
     }
+    
+    var imageName: String {
+        switch self {
+        case .cash:
+            return "banknote"
+        case .creditCard:
+            return "creditcard"
+        case .bankAccount:
+            return "signature"
+        }
+    }
 }
