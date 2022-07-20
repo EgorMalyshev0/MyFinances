@@ -29,36 +29,59 @@ struct AddTransactionScreen: View {
             .pickerStyle(SegmentedPickerStyle())
             .onChange(of: viewModel.selectedTransactionType) { _ in
                 viewModel.selectedCategory = nil
+                viewModel.selectedTargetAccount = nil
             }
             List {
                 BalanceRow(balance: $viewModel.amount, title: "Сумма")
-                NavigationLink {
-                    SelectCategoryScreen(transactionType: viewModel.selectedTransactionType, selectedCategory: $viewModel.selectedCategory)
-                } label: {
-                    Text(viewModel.selectedCategory?.name ?? "Выберите категорию")
-                        .foregroundColor(viewModel.selectedCategory == nil ? .secondary : .primary)
+                
+                if viewModel.selectedTransactionType != .transfer {
+                    NavigationLink {
+                        SelectCategoryScreen(transactionType: viewModel.selectedTransactionType, selectedCategory: $viewModel.selectedCategory)
+                    } label: {
+                        Text(viewModel.selectedCategory?.name ?? "Выберите категорию")
+                            .foregroundColor(viewModel.selectedCategory == nil ? .secondary : .primary)
+                    }
+                    NavigationLink {
+                        SelectAccountScreen(selectedAccount: $viewModel.selectedAccount)
+                    } label: {
+                        Text(viewModel.selectedAccount?.name ?? "Выберите счет")
+                            .foregroundColor(viewModel.selectedAccount == nil ? .secondary : .primary)
+                    }
+                } else {
+                    NavigationLink {
+                        SelectAccountScreen(selectedAccount: $viewModel.selectedAccount)
+                    } label: {
+                        Text(viewModel.selectedAccount?.name ?? "Откуда перевести")
+                            .foregroundColor(viewModel.selectedAccount == nil ? .secondary : .primary)
+                    }
+                    NavigationLink {
+                        SelectAccountScreen(selectedAccount: $viewModel.selectedTargetAccount)
+                    } label: {
+                        Text(viewModel.selectedTargetAccount?.name ?? "Куда перевести")
+                            .foregroundColor(viewModel.selectedTargetAccount == nil ? .secondary : .primary)
+                    }
                 }
-                NavigationLink {
-                    SelectAccountScreen(selectedAccount: $viewModel.selectedAccount)
-                } label: {
-                    Text(viewModel.selectedAccount?.name ?? "Выберите счет")
-                        .foregroundColor(viewModel.selectedAccount == nil ? .secondary : .primary)
-                }
+                
                 DatePicker("Дата", selection: $viewModel.selectedDate, in: ...Date(), displayedComponents: .date)
                     .environment(\.locale, Locale(identifier: "ru_RU"))
                     .labelsHidden()
             }
         }
         .toolbar {
-            Button("Сохранить") {
-                viewModel.saveTransaction()
-                viewModel.makeDonation()
-                presentationMode.wrappedValue.dismiss()
+            HStack {
+                Button("Удалить") {
+                    viewModel.deleteTransaction()
+                }
+                .opacity(viewModel.isEditing ? 1 : 0)
+                Button("Сохранить") {
+                    viewModel.saveTransaction()
+                    presentationMode.wrappedValue.dismiss()
+                }
+                .disabled(viewModel.savingEnable())
             }
-            .disabled(viewModel.amount.isEmpty || viewModel.selectedCategory == nil || viewModel.selectedAccount == nil)
+            
         }
         .accentColor(.green)
-//        .navigationTitle("Новая операция")
         .navigationBarTitleDisplayMode(.inline)
     }
     

@@ -17,7 +17,7 @@ struct TransactionRow: View {
         } else if transaction.type == .income {
             return "+\(transaction.amount.currencyString())"
         }
-        return ""
+        return "\(transaction.amount.currencyString())"
     }
     
     var color: Color {
@@ -32,12 +32,21 @@ struct TransactionRow: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 7) {
-                Text(transaction.category?.name ?? "Без категории")
-                    .foregroundColor(.primary)
-                    .font(.body)
-                Text(transaction.account.first?.name ?? "")
-                    .foregroundColor(.secondary)
-                    .font(.caption)
+                if transaction.type == .transfer {
+                    Text(transaction.account?.name ?? "")
+                        .foregroundColor(.primary)
+                        .font(.body)
+                    Text(transaction.targetAccount?.name ?? "")
+                        .foregroundColor(.primary)
+                        .font(.body)
+                } else {
+                    Text(transaction.category?.name ?? "Без категории")
+                        .foregroundColor(.primary)
+                        .font(.body)
+                    Text(transaction.account?.name ?? "")
+                        .foregroundColor(.secondary)
+                        .font(.caption)
+                }
             }
             Spacer()
             Text(amountText)

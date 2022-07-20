@@ -18,10 +18,17 @@ final class Account: Object, ObjectKeyIdentifiable {
     var balance: Double {
         var balance = startBalance
         transactions.forEach {
-            if $0.type == .expense {
+            switch $0.type {
+            case .expense:
                 balance -= $0.amount
-            } else if $0.type == .income {
+            case .income:
                 balance += $0.amount
+            case .transfer:
+                if $0.targetAccount?.name == name {
+                    balance += $0.amount
+                } else {
+                    balance -= $0.amount
+                }
             }
         }
         return balance

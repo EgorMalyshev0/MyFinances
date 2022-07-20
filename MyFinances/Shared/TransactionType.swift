@@ -11,6 +11,7 @@ import RealmSwift
 enum TransactionType: Int, CaseIterable, PersistableEnum {
     case expense = 0
     case income
+    case transfer
     
     var textDescription: String {
         switch self {
@@ -18,6 +19,8 @@ enum TransactionType: Int, CaseIterable, PersistableEnum {
             return "Расход"
         case .income:
             return "Доход"
+        case .transfer:
+            return "Перевод"
         }
     }
 }
