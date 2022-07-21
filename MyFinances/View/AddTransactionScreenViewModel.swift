@@ -62,26 +62,26 @@ class AddTransactionScreenViewModel: ObservableObject {
         transaction.type = selectedTransactionType
         transaction.date = selectedDate
         let realm = try! Realm.init(configuration: Constants.realmConfig)
+        try! realm.write({
+            realm.add(transaction)
+        })
+        if let id = selectedCategory?._id, let category = realm.object(ofType: Category.self, forPrimaryKey: id) {
             try! realm.write({
-                realm.add(transaction)
+                transaction.category = category
             })
-            if let id = selectedCategory?._id, let category = realm.object(ofType: Category.self, forPrimaryKey: id) {
-                try! realm.write({
-                    transaction.category = category
-                })
-            }
-            if let account = realm.object(ofType: Account.self, forPrimaryKey: selectedAccount?._id) {
-                try! realm.write({
-                    transaction.account = account
-                    account.transactions.append(transaction)
-                })
-            }
-            if let id = selectedTargetAccount?._id, let targetAccount = realm.object(ofType: Account.self, forPrimaryKey: id) {
-                try! realm.write({
-                    transaction.targetAccount = targetAccount
-                    targetAccount.transactions.append(transaction)
-                })
-            }
+        }
+        if let account = realm.object(ofType: Account.self, forPrimaryKey: selectedAccount?._id) {
+            try! realm.write({
+                transaction.account = account
+                account.transactions.append(transaction)
+            })
+        }
+        if let id = selectedTargetAccount?._id, let targetAccount = realm.object(ofType: Account.self, forPrimaryKey: id) {
+            try! realm.write({
+                transaction.targetAccount = targetAccount
+                targetAccount.transactions.append(transaction)
+            })
+        }
     }
     
     private func _deleteTransaction() {

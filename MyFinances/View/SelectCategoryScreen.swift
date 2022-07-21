@@ -23,12 +23,13 @@ struct SelectCategoryScreen: View {
         .navigationTitle("Категории")
         .toolbar {
             Button {
-                
             } label: {
-                Image(systemName: "plus")
+                NavigationLink {
+                    AddCategoryScreen(viewModel: AddCategoryViewModel())
+                } label: {
+                    Image(systemName: "plus")
+                }
             }
-
         }
     }
-        
 }

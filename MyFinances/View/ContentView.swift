@@ -31,10 +31,12 @@ struct ContentView: View {
                 Text("Операции")
             }
             .tag(1)
-            AddSiriShortcutScreen()
+            NavigationView {
+                SettingsScreen()
+            }
             .tabItem {
-                Image(systemName: "line.3.horizontal")
-                Text("Еще")
+                Image(systemName: "gear")
+                Text("Настройки")
             }
             .tag(2)
         }
@@ -42,7 +44,7 @@ struct ContentView: View {
         .onAppear {
             UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = .green
             if categories.isEmpty {
-                DefaultCategoryMaker.categories().forEach({$categories.append($0)})
+                CategoryManager.categories().forEach({$categories.append($0)})
             }
         }
     }

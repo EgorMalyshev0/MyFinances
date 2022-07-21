@@ -42,6 +42,13 @@
 		DEBAC3CE27BAB13F0075959B /* CreateTransactionIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DEBAC3C227BAB13F0075959B /* CreateTransactionIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DEBAC3D127BAB13F0075959B /* CreateTransactionIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DEBAC3B627BAB13F0075959B /* CreateTransactionIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DEBBF5FA2886AE9E002D9986 /* AddTransactionScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBBF5F92886AE9E002D9986 /* AddTransactionScreenViewModel.swift */; };
+		DEBBF5FC28883C36002D9986 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBBF5FB28883C36002D9986 /* SettingsScreen.swift */; };
+		DEBBF60028883D4B002D9986 /* CategoriesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBBF5FF28883D4B002D9986 /* CategoriesScreen.swift */; };
+		DEBBF60328884235002D9986 /* AddCategoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBBF60228884235002D9986 /* AddCategoryScreen.swift */; };
+		DEBBF605288845F6002D9986 /* SelectIconScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBBF604288845F6002D9986 /* SelectIconScreen.swift */; };
+		DEBBF60728884B4C002D9986 /* AddCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBBF60628884B4C002D9986 /* AddCategoryViewModel.swift */; };
+		DEBBF6092889320B002D9986 /* CategoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBBF6082889320B002D9986 /* CategoryManager.swift */; };
+		DEBBF60B28893BAE002D9986 /* SelectCategoryTypeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBBF60A28893BAE002D9986 /* SelectCategoryTypeRow.swift */; };
 		DEF57A7027BC1D370089FD31 /* CustomIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A6F27BC1D340089FD31 /* CustomIntents.intentdefinition */; settings = {ATTRIBUTES = (project_codegen, ); }; };
 		DEF57A7627BC1F910089FD31 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A7227BC1F910089FD31 /* Constants.swift */; };
 		DEF57A7727BC1F910089FD31 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF57A7327BC1F910089FD31 /* StorageService.swift */; };
@@ -149,6 +156,13 @@
 		DEBAC3EF27BADB8C0075959B /* CreateTransactionIntentUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CreateTransactionIntentUI.entitlements; sourceTree = "<group>"; };
 		DEBAC3F027BADBA70075959B /* CreateTransactionIntent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CreateTransactionIntent.entitlements; sourceTree = "<group>"; };
 		DEBBF5F92886AE9E002D9986 /* AddTransactionScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionScreenViewModel.swift; sourceTree = "<group>"; };
+		DEBBF5FB28883C36002D9986 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		DEBBF5FF28883D4B002D9986 /* CategoriesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesScreen.swift; sourceTree = "<group>"; };
+		DEBBF60228884235002D9986 /* AddCategoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryScreen.swift; sourceTree = "<group>"; };
+		DEBBF604288845F6002D9986 /* SelectIconScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectIconScreen.swift; sourceTree = "<group>"; };
+		DEBBF60628884B4C002D9986 /* AddCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewModel.swift; sourceTree = "<group>"; };
+		DEBBF6082889320B002D9986 /* CategoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManager.swift; sourceTree = "<group>"; };
+		DEBBF60A28893BAE002D9986 /* SelectCategoryTypeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryTypeRow.swift; sourceTree = "<group>"; };
 		DEF57A6F27BC1D340089FD31 /* CustomIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = CustomIntents.intentdefinition; sourceTree = "<group>"; };
 		DEF57A7227BC1F910089FD31 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DEF57A7327BC1F910089FD31 /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
@@ -217,7 +231,7 @@
 				DEBAC3B127BAB0F30075959B /* MyFinances.entitlements */,
 				DEBAC3B027B942930075959B /* Info.plist */,
 				DE56444427AEC4C1000D6714 /* MyFinancesApp.swift */,
-				DEF57A9027C295DC0089FD31 /* ShortcutDonateButton */,
+				DEBBF60C28894098002D9986 /* Services */,
 				DEF57A7127BC1F910089FD31 /* Shared */,
 				DE56447327B2D63F000D6714 /* View */,
 				DE56447B27B2F9C0000D6714 /* Extensions */,
@@ -239,16 +253,18 @@
 			isa = PBXGroup;
 			children = (
 				DE56444627AEC4C1000D6714 /* ContentView.swift */,
-				DEB7CE3C2885913900955EBE /* TransactionsScreen */,
-				DE56445427B0087F000D6714 /* AccountsScreen.swift */,
-				DEF57A8C27C293E90089FD31 /* AddSiriShortcutScreen.swift */,
-				DE56447C27B2FE3F000D6714 /* AddTransactionScreen */,
-				DE56447427B2D662000D6714 /* AddAccountScreen */,
+				DEB7CE3C2885913900955EBE /* Transactions */,
+				DEBBF5FE28883C68002D9986 /* Accounts */,
+				DEBBF5FD28883C3C002D9986 /* Settings */,
+				DE56447C27B2FE3F000D6714 /* AddTransaction */,
+				DE56447427B2D662000D6714 /* AddAccount */,
+				DEBBF60128883D52002D9986 /* Categories */,
+				DEF57A9027C295DC0089FD31 /* ShortcutDonateButton */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		DE56447427B2D662000D6714 /* AddAccountScreen */ = {
+		DE56447427B2D662000D6714 /* AddAccount */ = {
 			isa = PBXGroup;
 			children = (
 				DE56445D27B19F63000D6714 /* AddAccountScreen.swift */,
@@ -257,7 +273,7 @@
 				DE56447127B2D1A3000D6714 /* SelectAccountTypeCell.swift */,
 				DE56447727B2F964000D6714 /* AccountCell.swift */,
 			);
-			path = AddAccountScreen;
+			path = AddAccount;
 			sourceTree = "<group>";
 		};
 		DE56447B27B2F9C0000D6714 /* Extensions */ = {
@@ -269,7 +285,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		DE56447C27B2FE3F000D6714 /* AddTransactionScreen */ = {
+		DE56447C27B2FE3F000D6714 /* AddTransaction */ = {
 			isa = PBXGroup;
 			children = (
 				DE56445B27B19CFE000D6714 /* AddTransactionScreen.swift */,
@@ -280,16 +296,16 @@
 				DEBAC3AA27B7C8BB0075959B /* SelectAccountRow.swift */,
 				DEBAC3A227B597E30075959B /* SelectCategoryRow.swift */,
 			);
-			name = AddTransactionScreen;
+			name = AddTransaction;
 			sourceTree = "<group>";
 		};
-		DEB7CE3C2885913900955EBE /* TransactionsScreen */ = {
+		DEB7CE3C2885913900955EBE /* Transactions */ = {
 			isa = PBXGroup;
 			children = (
 				DE56445227B007D9000D6714 /* TransactionsScreen.swift */,
 				DEB7CE3D2885915500955EBE /* TransactionsScreenViewModel.swift */,
 			);
-			path = TransactionsScreen;
+			path = Transactions;
 			sourceTree = "<group>";
 		};
 		DEBAC3B727BAB13F0075959B /* Frameworks */ = {
@@ -322,6 +338,43 @@
 				DEBAC3CB27BAB13F0075959B /* Info.plist */,
 			);
 			path = CreateTransactionIntentUI;
+			sourceTree = "<group>";
+		};
+		DEBBF5FD28883C3C002D9986 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DEBBF5FB28883C36002D9986 /* SettingsScreen.swift */,
+				DEF57A8C27C293E90089FD31 /* AddSiriShortcutScreen.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DEBBF5FE28883C68002D9986 /* Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				DE56445427B0087F000D6714 /* AccountsScreen.swift */,
+			);
+			path = Accounts;
+			sourceTree = "<group>";
+		};
+		DEBBF60128883D52002D9986 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				DEBBF5FF28883D4B002D9986 /* CategoriesScreen.swift */,
+				DEBBF60228884235002D9986 /* AddCategoryScreen.swift */,
+				DEBBF60628884B4C002D9986 /* AddCategoryViewModel.swift */,
+				DEBBF604288845F6002D9986 /* SelectIconScreen.swift */,
+				DEBBF60A28893BAE002D9986 /* SelectCategoryTypeRow.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		DEBBF60C28894098002D9986 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DEBBF6082889320B002D9986 /* CategoryManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		DEF57A7127BC1F910089FD31 /* Shared */ = {
@@ -490,13 +543,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEBBF60728884B4C002D9986 /* AddCategoryViewModel.swift in Sources */,
+				DEBBF5FC28883C36002D9986 /* SettingsScreen.swift in Sources */,
 				DEF57A7627BC1F910089FD31 /* Constants.swift in Sources */,
 				DE56445C27B19CFE000D6714 /* AddTransactionScreen.swift in Sources */,
 				DE56447227B2D1A4000D6714 /* SelectAccountTypeCell.swift in Sources */,
 				DEBAC39F27B56E7B0075959B /* Category.swift in Sources */,
+				DEBBF6092889320B002D9986 /* CategoryManager.swift in Sources */,
 				DEBAC39627B447200075959B /* TransactionRow.swift in Sources */,
 				DEBAC3AD27B8FB260075959B /* Date+Formatter.swift in Sources */,
 				DE56445E27B19F63000D6714 /* AddAccountScreen.swift in Sources */,
+				DEBBF60028883D4B002D9986 /* CategoriesScreen.swift in Sources */,
 				DEB7CE3E2885915500955EBE /* TransactionsScreenViewModel.swift in Sources */,
 				DEF57A7727BC1F910089FD31 /* StorageService.swift in Sources */,
 				DE56446727B1A744000D6714 /* BalanceRow.swift in Sources */,
@@ -505,12 +562,14 @@
 				DEF57A8627BC2EBF0089FD31 /* CustomIntents.intentdefinition in Sources */,
 				DE56445327B007D9000D6714 /* TransactionsScreen.swift in Sources */,
 				DEF57A8D27C293E90089FD31 /* AddSiriShortcutScreen.swift in Sources */,
+				DEBBF60328884235002D9986 /* AddCategoryScreen.swift in Sources */,
 				DE56444527AEC4C1000D6714 /* MyFinancesApp.swift in Sources */,
 				DE56445527B0087F000D6714 /* AccountsScreen.swift in Sources */,
 				DEF57A7827BC1F910089FD31 /* TransactionManager.swift in Sources */,
 				DEBAC3A927B7C5BC0075959B /* SelectAccountScreen.swift in Sources */,
 				DEF57A9227C296150089FD31 /* DonateViewController.swift in Sources */,
 				DEBAC39827B44CB20075959B /* TransactionType.swift in Sources */,
+				DEBBF605288845F6002D9986 /* SelectIconScreen.swift in Sources */,
 				DEBAC3AB27B7C8BB0075959B /* SelectAccountRow.swift in Sources */,
 				DEF57A8F27C295D50089FD31 /* ShortcutDonateButton.swift in Sources */,
 				DE56446927B1A8C0000D6714 /* SelectAccountTypeScreen.swift in Sources */,
@@ -518,6 +577,7 @@
 				DE56447A27B2F9AC000D6714 /* Double+NumberFormatter.swift in Sources */,
 				DEBBF5FA2886AE9E002D9986 /* AddTransactionScreenViewModel.swift in Sources */,
 				DE56446027B1A0C7000D6714 /* Account.swift in Sources */,
+				DEBBF60B28893BAE002D9986 /* SelectCategoryTypeRow.swift in Sources */,
 				DEBAC3A327B597E30075959B /* SelectCategoryRow.swift in Sources */,
 				DEBAC39227B444A40075959B /* Transaction.swift in Sources */,
 				DEBAC3A127B593F70075959B /* SelectCategoryScreen.swift in Sources */,
